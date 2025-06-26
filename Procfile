@@ -1,1 +1,1 @@
-gunicorn singler.wsgi:application
+web: gunicorn singler.wsgi:application
