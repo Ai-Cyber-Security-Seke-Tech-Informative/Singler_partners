@@ -1,0 +1,60 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Logs</title>
+    <link rel="stylesheet" href="{% static 'css/logs.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="log-container">
+        <button class="back-btn" onclick="history.back()">← Back</button>
+
+        <h1 class="log-title">🧾 System Logs <span>(Last 100)</span></h1>
+
+        <div class="table-wrapper">
+            <table class="log-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                        <th>Level</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                        <th>Description</th>
+                        <th>IP</th>
+                        <th>Path</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log.timestamp }}</td>
+                        <td>
+                            {% if log.user %}
+                                {{ log.user.username }}
+                            {% else %}
+                                <span class="anonymous">Anonymous</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ log.log_level }}</td>
+                        <td>{{ log.category }}</td>
+                        <td>{{ log.action }}</td>
+                        <td>{{ log.description|default:"-" }}</td>
+                        <td>{{ log.ip_address|default:"-" }}</td>
+                        <td>{{ log.request_path|default:"-" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="8" class="no-logs">No logs available.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

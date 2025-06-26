@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Application</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
+    <style>
+    body {
+        background-color: #0f172a;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        color: #e0f7ff;
+    }
+
+    .delete-container {
+        background-color: #1e293b;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .delete-container h2 {
+        color: red; /* preserve original red alert color */
+        margin-bottom: 20px;
+    }
+
+    .delete-container p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #d1eaff;
+    }
+
+    .delete-container em {
+        color: #94a3b8;
+        font-style: italic;
+    }
+
+    form {
+        margin-top: 25px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-right: 15px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #bb2d3b;
+    }
+
+    .btn-cancel {
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    .btn-cancel:hover {
+        background-color: #5a6268;
+    }
+</style>
+</head>
+<body>
+    <div class="delete-container">
+        <h2><i class="fas fa-exclamation-triangle"></i> Delete Application</h2>
+        <p>Are you sure you want to delete the application from <strong>{{ application.full_name }}</strong>?</p>
+        <p><em>"{{ application.why_join|truncatechars:150 }}"</em></p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-danger"><i class="fas fa-trash"></i> Confirm Delete</button>
+            <a href="{% url 'join_list' %}" class="btn-cancel"><i class="fas fa-times"></i> Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

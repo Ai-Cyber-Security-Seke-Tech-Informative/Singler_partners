@@ -1,0 +1,128 @@
+body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0b1a2f,rgb(16, 30, 49));
+      color: #fff;
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    .form-container {
+      background-color:rgb(16, 31, 53);
+      border-radius: 1rem;
+      margin-top: 0px;
+      padding: 2.3rem 2rem;
+      box-shadow: 0 4px 10px gold;
+      max-width: 480px;
+      width: 100%;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 8px #d4af37;
+      background-color: #22272e;
+    }
+    button.primary-btn {
+      background-color: #d4af37;
+      color: #111827;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    button.primary-btn:hover {
+      background-color: #b38f17;
+    }
+    .social-btn {
+      background-color: white;
+      color: black;
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .social-btn:hover {
+      background-color: #f3f3f3;
+      box-shadow: 0 0 15px #d4af37;
+    }
+    .social-icons {
+      width: 18px;
+      height: 18px;
+    }
+    @media (max-width: 768px) {
+      .logo {
+        position: relative;
+        top: auto;
+        left: auto;
+        text-align: center;
+        margin: 1rem auto;
+        font-size: 2rem;
+      }
+      .company-name {
+        font-size: 0.9rem;
+      }
+    }
+
+    
+/* Header */
+.header {
+  background: #0b1a2f;
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  box-shadow: 0px 2px rgb(29, 38, 53);;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 48px;
+  font-weight: bold;
+  color: #f1c40f;
+  margin-right: 10px;
+  position: relative;
+}
+
+.logo-text::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+li{
+      color: white;
+      transition: 0.5s;
+      margin-left: 30px;
+    }
+    li:hover{
+      color: gold;
+      transition: 0.5s;
+      border-bottom: 2px solid gold;
+    }
+  

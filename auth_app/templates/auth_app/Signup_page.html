@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up | Singler Partners</title>
+  <link rel="stylesheet" href="{% static 'css/Signup.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <script>
+    async function handleSignup(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      const username = formData.get('username').trim();
+      const email = formData.get('email').trim();
+      const password = formData.get('password');
+      const confirmPassword = formData.get('confirm_password');
+
+      // Basic validation
+      if (!username || !email || !password || !confirmPassword) {
+        alert("All fields are required.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      try {
+        const response = await fetch("{% url 'signup' %}", {
+          method: "POST",
+          headers: {
+            "X-CSRFToken": formData.get("csrfmiddlewaretoken"),
+          },
+          body: formData
+        });
+
+        if (response.redirected) {
+          // In case the view does a redirect
+          window.location.href = response.url;
+        } else if (response.ok) {
+          // Signup successful, redirect to last_step
+          window.location.href = "{% url 'last_step' %}";
+        } else {
+          const data = await response.json();
+          const errorMsg = Object.values(data)[0][0] || "Signup failed.";
+          alert("Error: " + errorMsg);
+        }
+      } catch (error) {
+        console.error("Signup error:", error);
+        alert("Unexpected error occurred during signup.");
+      }
+    }
+  </script>
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <span class="logo-text">S</span>
+      <div class="company-name">Singler Partners</div>
+      <li><a href="{% url 'index' %}">Home</a></li>
+    </div>
+</header>
+
+<div class="min-h-screen flex items-center justify-center px-4 py-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 max-w-6xl w-full rounded-2xl overflow-hidden shadow-xl bg-gray-900">
+
+    <!-- Left Image -->
+    <div class="hidden md:block">
+      <img src="{% static 'images/CCTV.avif' %}" alt="Security Surveillance" class="h-full w-full object-cover" />
+    </div>
+
+    <!-- Right Form -->
+    <div class="form-container flex flex-col justify-center p-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">Create Your Account</h2>
+      <p class="mb-6 text-gray-300">Sign up to access your secure Singler dashboard</p>
+
+      {% load socialaccount %}
+
+      <form method="POST" class="space-y-6" onsubmit="handleSignup(event)">
+        {% csrf_token %}
+
+        <div>
+          <label for="name" class="block text-sm font-medium">Full Name</label>
+          <input type="text" id="name" name="username" required placeholder="John Doe"
+                 class="mt-1 block w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white">
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com"
+                 class="mt-1 block w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white">
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium">Password</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••"
+                 class="mt-1 block w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white">
+        </div>
+
+        <div>
+          <label for="confirm_password" class="block text-sm font-medium">Confirm Password</label>
+          <input type="password" id="confirm_password" name="confirm_password" required placeholder="••••••••"
+                 class="mt-1 block w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white">
+        </div>
+
+        <button type="submit" class="primary-btn w-full py-3 rounded-lg bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
+          Sign Up
+        </button>
+
+        <p class="text-center text-gray-400">or sign up with</p>
+
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="social-btn flex items-center space-x-2 text-white">
+            <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google" />
+            <span>Google</span>
+          </a>
+          <a href="#" class="social-btn flex items-center space-x-2 text-white">
+            <img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" />
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="social-btn flex items-center space-x-2 text-white">
+            <img src="https://img.icons8.com/ios-glyphs/24/000000/github.png" alt="GitHub" />
+            <span>GitHub</span>
+          </a>
+        </div>
+      </form>
+
+      <p class="mt-8 text-center text-sm text-gray-400">
+        Already have an account?
+        <a href="{% url 'login' %}" class="text-yellow-400 hover:underline">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

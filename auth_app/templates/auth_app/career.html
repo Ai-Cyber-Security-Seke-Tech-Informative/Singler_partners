@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singler Partners | Carrer</title>
+   <meta name="description" content="Singler provides elite cyber security, forensic and investigative services across Africa.">
+  <link rel="stylesheet" href="{% static 'css/career.css' %}" />
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+   <script src="{% static 'js/script.js' %}?v=1" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-wrapper">
+      <div class="logo">
+        <img src="{% static 'images/Singler.png' %}" alt="Singler Logo" />
+        <span class="logo-text">S</span>
+        <div class="company-name">Singler</div>
+      </div>
+    </div>
+
+    <!-- Menu Toggle for Mobile -->
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      &#9776;
+    </button>
+
+    <!-- Nav Menu -->
+    <nav class="nav" id="nav-menu" aria-label="Primary navigation">
+
+    <div class="nav-logo-mobile">
+    <div class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="Company Logo" />
+      <span class="logo-text">Singler</span>
+    </div>
+  </div>
+      
+      <button class="close-menu" id="close-menu" aria-label="Close menu">&times;</button>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+
+        <!-- Services Dropdown -->
+        <li class="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services &#9662;</a>
+          <div class="dropdown-menu" aria-label="submenu">
+            <a href="{% url 'services' %}">Security Audits</a>
+            <a href="{% url 'services' %}#SupplyChainRisks">Supply Chain Risks</a>
+            <a href="{% url 'services' %}#DueDiligence">Due Diligence</a>
+            <a href="{% url 'services' %}#MarketRiskEntry">Market Risk Entry</a>
+            <a href="{% url 'services' %}#AntiCounterfeit">Anti-Counterfeit</a>
+            <a href="{% url 'services' %}#FraudInvestigations">Fraud Investigations</a>
+            <a href="{% url 'services' %}#DigitalForensics">Digital Forensics</a>
+            <a href="{% url 'services' %}#TheftLoss">Theft & Loss</a>
+            <a href="{% url 'services' %}#UndercoverOps">Undercover Ops</a>
+            <a href="{% url 'services' %}#LawEnforcementCollaboration">Law Enforcement</a>
+          </div>
+        </li>
+
+        <!-- Experience Dropdown -->
+        <li class="dropdown" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Experience &#9662;</a>
+          <div class="dropdown-menu" aria-label="Experience submenu">
+            <a href="{% url 'experience' %}">Trusted Advisors</a>
+            <a href="{% url 'experience' %}#AfricaExpertise">Africa Expertise</a>
+            <a href="{% url 'experience' %}#ProvenResults">Proven Results</a>
+            <a href="{% url 'experience' %}#DiscreetOperations">Discreet Operations</a>
+            <a href="{% url 'experience' %}#RegulatoryInsight">Regulatory Insight</a>
+            <a href="{% url 'experience' %}#EthicalMethods">Ethical Methods</a>
+            <a href="{% url 'experience' %}#CrossBorderReach">Cross-Border Reach</a>
+            <a href="{% url 'experience' %}#LawEnforcementTies">Law Enforcement Ties</a>
+            <a href="{% url 'experience' %}#ClientConfidentiality">Client Confidentiality</a>
+            <a href="{% url 'experience' %}#CrisisResponse">Crisis Response</a>
+          </div>
+        </li>
+
+        <!-- Ideas Dropdown -->
+        <li class="dropdown" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Ideas &#9662;</a>
+          <div class="dropdown-menu" aria-label="Ideas submenu">
+            <a href="{% url 'ideas' %}">Emerging Threats</a>
+            <a href="{% url 'ideas' %}#CaseStudies">Case Studies</a>
+            <a href="{% url 'ideas' %}#InvestigativeTrends">Investigative Trends</a>
+            <a href="{% url 'ideas' %}#CounterfeitEvolution">Counterfeit Evolution</a>
+            <a href="{% url 'ideas' %}#SupplyChainInnovation">Supply Chain Innovation</a>
+            <a href="{% url 'ideas' %}#CyberIntelligence">Cyber Intelligence</a>
+            <a href="{% url 'ideas' %}#PolicyCompliance">Policy & Compliance</a>
+            <a href="{% url 'ideas' %}#DataDrivenDecisions">Data-Driven Decisions</a>
+            <a href="{% url 'ideas' %}#AfricaRiskOutlook">Africa Risk Outlook</a>
+            <a href="{% url 'ideas' %}#ThoughtLeadership">Thought Leadership</a>
+          </div>
+        </li>
+
+        <!-- Careers Dropdown -->
+        <li class="dropdown" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Careers &#9662;</a>
+          <div class="dropdown-menu" aria-label="Careers submenu">
+            <a href="{% url 'career' %}">Join Our Team</a>
+            <a href="{% url 'career' %}#CurrentOpenings">Current Openings</a>
+            <a href="{% url 'career' %}#FieldInvestigators">Field Investigators</a>
+            <a href="{% url 'career' %}#DigitalForensicsRoles">Digital Forensics Roles</a>
+            <a href="{% url 'career' %}#RiskAnalysts">Risk Analysts</a>
+            <a href="{% url 'career' %}#LifeAtSingler">Life at Singler</a>
+            <a href="{% url 'career' %}#TrainingGrowth">Training & Growth</a>
+            <a href="{% url 'career' %}#OurValues">Our Values</a>
+            <a href="{% url 'career' %}#Internships">Internships</a>
+            <a href="{% url 'career' %}#ApplyNow">Apply Now</a>
+          </div>
+        </li>
+
+        <!-- Static Links -->
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact_app:contact' %}">Contact</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <section class="hero">
+    <div class="hero-slider">
+        <div class="hero-slide active animate-fade" data-animation="animate-fade" style="background-image: url({% static 'images/protect2.avif' %});">
+        <h1 data-text="Protecting Tomorrow, Today"></h1>
+        <p>Advance your security posture with predictive intelligence and next-gen surveillance systems.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-zoom" style="background-image: url({% static 'images/inteligence.jpg' %});">
+        <h1 data-text="Intelligence Beyond Borders"></h1>
+        <p>Strategic insights across Africa and beyond for secure investment navigation.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-rise" style="background-image: url({% static 'images/digital.avif' %});">
+        <h1 data-text="Securing Digital Dimensions"></h1>
+        <p>Resilient cybersecurity frameworks to neutralize modern digital threats.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-shift" style="background-image: url({% static 'images/CCTV.avif' %});">
+        <h1 data-text="Exposing Hidden Threats"></h1>
+        <p>Corporate investigations that uncover fraud, misconduct, and internal risks.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-blur" style="background-image: url({% static 'images/hero.jpg' %});">
+        <h1 data-text="Eyes on What Matters"></h1>
+        <p>Covert surveillance strategies delivering actionable intelligence discreetly.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+    </div>
+    </section>
+
+
+  <div class="hero-nav">
+    <button id="prevSlide">&#10094;</button>
+    <button id="nextSlide">&#10095;</button>
+  </div>
+</section>
+
+  <!-- Stats Section -->
+  <section class="stats" style="font-family: 'Share Tech Mono', monospace; font-size: 18px;">
+  <div class="container grid-3">
+    
+    <div class="stat" style="padding: 15px 0;">
+      <h2 style="text-shadow: 1px 1px 2px black; line-height: 1.5; margin-bottom: 8px;">Join Our Team</h2>
+      <p>Opportunities</p>
+    </div>
+    
+    <div class="stat" style="padding: 15px 0;">
+      <h2 style="text-shadow: 1px 1px 2px black; line-height: 1.5; margin-bottom: 8px;">Current Openings</h2>
+      <p>Positions</p>
+    </div>
+    
+    <div class="stat" style="padding: 15px 0;">
+      <h2 style="text-shadow: 1px 1px 2px black; line-height: 1.5; margin-bottom: 8px;">Life At Singler</h2>
+      <p>Culture</p>
+    </div>
+    
+  </div>
+</section>
+
+
+
+  <div class="container_one" id="JoinOurTeam">
+
+    <section class="section join-team">
+      <h2>Join the Team</h2>
+      <p>We are looking for passionate cybersecurity professionals and web developers to join our innovative team. At our organization, your skills will not only be recognized but also continuously nurtured through real-world challenges and collaborative projects. We foster a culture of innovation, responsibility, and continuous improvement, ensuring everyone contributes meaningfully to secure, cutting-edge technology. Whether you're just starting out or bringing years of experience, you'll find a supportive environment focused on impact and personal development. We believe in cultivating a space where creativity meets discipline, making every role essential to shaping the future of secure digital ecosystems. Let’s build it together.</p>
+
+      <div style="text-align:center; margin-top: 1.5rem;">
+        <a href="{% url 'join_app:join' %}" style="
+          display: inline-block;
+          background: linear-gradient(135deg, #00f0ff, #007bff);
+          color: white;
+          padding: 0.75rem 2rem;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1rem;
+          box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+          transition: all 0.3s ease-in-out;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          Join the Team
+        </a>
+      </div>
+    </section>
+
+    <section class="section current-openings" id="CurrentOpenings">
+      <h2>Current Openings</h2>
+      <p>Explore the diverse job opportunities currently available at our company. Whether you're skilled in network security, software development, or digital forensics, there’s a place here for you. We offer roles that challenge the intellect, inspire creativity, and encourage collaboration. From junior analysts to experienced engineers and cybersecurity consultants, our openings are designed for both technical and non-technical talents. We're looking for problem-solvers, thinkers, and innovators eager to make a difference. Our hiring process is transparent and welcoming, focusing on potential and passion. Join a mission-driven team committed to safeguarding the digital landscape while constantly evolving with the industry.</p>
+    </section>
+
+    <section class="section field-investigators" id="FieldInvestigators">
+      <h2>Field Investigators</h2>
+      <p>Field investigators are critical assets in our cybersecurity framework. These professionals bridge the gap between digital and physical domains by collecting, analyzing, and documenting vital evidence. Whether it's a compromised server or a breached facility, our investigators dive deep to uncover the truth. This role requires excellent observational skills, sharp critical thinking, and the ability to navigate sensitive environments with discretion. Investigators often collaborate with law enforcement and internal teams, providing actionable intelligence for ongoing operations. If you're passionate about real-world cyber incidents and enjoy investigative work that blends technology with field activity, this role is an ideal opportunity.</p>
+    </section>
+
+    <section class="section digital-forensics" id="DigitalForensicsRoles">
+      <h2>Digital Forensics</h2>
+      <p>Our digital forensics team plays a vital role in responding to cybersecurity incidents with precision and technical expertise. These professionals utilize advanced forensic tools and methodologies to analyze compromised systems, recover lost data, and trace threat actors. Responsibilities include conducting forensic imaging, log analysis, malware reverse-engineering, and providing expert testimony when necessary. Accuracy, confidentiality, and deep technical knowledge are key in this role. We’re seeking team members who are methodical, curious, and committed to uncovering digital evidence. If you are excited about diving into the digital trail and playing a key role in breach response, we want to hear from you.</p>
+    </section>
+
+    <section class="section risk-analysts" id="RiskAnalysts">
+      <h2>Risk Analysts</h2>
+      <p>Risk analysts at our company are proactive defenders of information security. They assess systems for vulnerabilities, forecast emerging threats, and develop strategic recommendations to mitigate risks. This role involves performing risk assessments, creating threat models, and working closely with various departments to ensure compliance and best practices. An eye for detail, strong analytical skills, and a solid understanding of cybersecurity principles are essential. You’ll help shape our defense strategies and guide decision-makers through risk management processes. If you enjoy problem-solving, predictive analysis, and making data-driven security decisions, this role will put your talents to the test in a meaningful way.</p>
+    </section>
+
+    <section class="section life-at-singler" id="LifeAtSingler">
+      <h2>Life at Singler</h2>
+      <p>At Singler, we believe that people thrive in a culture of support, learning, and shared goals. Our team enjoys a collaborative environment where innovation is encouraged, and every voice matters. From regular knowledge-sharing sessions to team-building activities and flexible work arrangements, we’re committed to a balanced, rewarding experience. You’ll be surrounded by professionals who are not only experts in their field but also mentors and friends. We celebrate success, learn from setbacks, and continuously evolve together. Join us and become part of a family where your personal growth is as important as the company’s success. Your journey starts here.</p>
+    </section>
+
+    <section class="section training-growth" id="TrainingGrowth">
+      <h2>Training & Growth</h2>
+      <p>We prioritize your professional growth with a strong commitment to ongoing learning. Through structured training programs, certifications, hands-on workshops, and mentoring, we ensure our team stays ahead in cybersecurity and web technology. Our learning environment is built to encourage curiosity and advancement, whether you're diving into AI-powered security tools or mastering a new programming language. We support certifications, conference participation, and access to premium learning platforms. Continuous development isn’t just encouraged—it’s embedded in our culture. By joining us, you’ll not only advance your skills but also help push the boundaries of what’s possible in digital security and development.</p>
+    </section>
+
+    <section class="section our-values" id="OurValues">
+      <h2>Our Values</h2>
+      <p>Our core values drive everything we do. We believe in ethical responsibility, transparency, and technological excellence. Innovation is at the heart of our operations, pushing us to continuously explore new ways to protect and empower users. Integrity guides our decisions and relationships, both internal and external. Commitment means going the extra mile to deliver secure, reliable solutions. We also believe in diversity, collaboration, and making a lasting impact on our communities. These principles are more than just words—they shape our culture and define who we are as a company. If these values resonate with you, you’ll fit right in.</p>
+    </section>
+
+    <section class="section internships" id="Internships">
+      <h2>Internships</h2>
+      <p>Our internship program is tailored for students and young professionals eager to dive into the world of cybersecurity and web design. Interns are given meaningful projects, guided by mentors, and exposed to real-life challenges. You’ll gain hands-on experience with security tools, coding frameworks, and team workflows. Beyond technical skills, we focus on personal growth, professional communication, and strategic thinking. Whether you're analyzing malware, designing web interfaces, or learning security protocols, you’ll be contributing to real outcomes. Internships often lead to full-time roles, making this a perfect gateway to a successful career. Join us and start building your future today.</p>
+    </section>
+
+    <section class="section apply-now" id="ApplyNow">
+      <h2>Apply Now</h2>
+      <p>Are you ready to take the next step in your career? Join a company that's shaping the future of cybersecurity and digital solutions. We welcome applicants from diverse backgrounds with a passion for technology and a drive to make an impact. Submitting your application is simple, and our team is here to support you throughout the process. Whether you're applying for a technical or creative role, we’re looking for thinkers, builders, and problem-solvers. Take this opportunity to align your skills with purpose. Let’s work together to protect, innovate, and transform the digital world. Apply now and make it happen.</p>
+      
+      <div style="text-align:center; margin-top: 1.5rem;">
+        <a href="{% url 'join_app:join' %}" style="
+          display: inline-block;
+          background: linear-gradient(135deg, #00f0ff, #007bff);
+          color: white;
+          padding: 0.75rem 2rem;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1rem;
+          box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+          transition: all 0.3s ease-in-out;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          Apply Now
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+      
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="about">
+      <h3>Singler Partners</h3>
+      <p>Your trusted partner in strategic advisory and cyber intelligence. Delivering insights that matter.</p>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'privacy_policy' %}#Cookies">Cookies</a></li>
+        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+        <li><a href="{% url 'career' %}">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:simon.njue@singlerpartners.com">simon.njue@singlerpartners.com</a></p>
+      <p>Phone: <a href="tel:+254722388151">+254722388151</a></p>
+      <p>Address: Applewood Towers, Nairobi, Kenya </p>
+    </div>
+
+    <div class="social-media">
+      <h3>Follow Us</h3>
+      <div class="social-icons" aria-label="Social media links">
+        <a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" title="Twitter" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M23.954 4.569a10 10 0 01-2.825.775 4.932 4.932 0 002.163-2.724 9.85 9.85 0 01-3.127 1.195 4.918 4.918 0 00-8.384 4.482A13.957 13.957 0 011.671 3.149 4.916 4.916 0 003.195 9.722 4.9 4.9 0 012 9.31v.06a4.915 4.915 0 003.946 4.814 4.996 4.996 0 01-2.212.084 4.923 4.923 0 004.588 3.417 9.865 9.865 0 01-6.102 2.104c-.398 0-.79-.023-1.175-.068a13.945 13.945 0 007.557 2.212c9.054 0 14-7.496 14-13.986 0-.21 0-.42-.015-.63a9.936 9.936 0 002.46-2.54z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.98 3.5C4.98 2.12 6.08 1 7.44 1c1.36 0 2.44 1.12 2.44 2.5S8.8 6 7.44 6c-1.36 0-2.44-1.12-2.44-2.5zM4 8h7v13H4V8zm8 0h6v1.5h.08c.83-1.56 2.86-3.21 5.92-3.21 6.33 0 7.5 4.16 7.5 9.56V21h-7v-7.5c0-1.8-.04-4.12-2.5-4.12-2.5 0-2.88 1.96-2.88 3.98V21h-7V8z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7.75 2h8.5C18.55 2 20 3.45 20 5.75v8.5c0 2.3-1.45 3.75-3.75 3.75h-8.5C5.45 18 4 16.55 4 14.25v-8.5C4 3.45 5.45 2 7.75 2zm4.25 3a5 5 0 11-5 5 5 5 0 015-5zm3.25-.5a1.25 1.25 0 11-1.25-1.25 1.25 1.25 0 011.25 1.25zM12 8.5c-1.52 0-2.75 1.23-2.75 2.75S10.48 14 12 14s2.75-1.23 2.75-2.75S13.52 8.5 12 8.5z"/></svg>
+        </a>
+      </div>
+      <img class="logo_image" src="{% static 'images/logo.png' %}" alt="logo img">
+    </div>
+
+    <div class="bottom-bar">
+      <p>&copy; 2025 Singler Partners. All rights reserved.</p>
+    </div>
+  </div>
+
+  <button class="scroll-top" aria-label="Scroll to top" title="Back to top">
+    ↑
+  </button>
+</footer>
+
+</body>
+</html>

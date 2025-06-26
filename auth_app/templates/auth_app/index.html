@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singler Partners</title>
+  <meta name="description" content="Singler provides elite cyber security, forensic and investigative services across Africa.">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/script.js' %}?v=1" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-wrapper">
+      <div class="logo">
+        <img src="{% static 'images/Singler.png' %}" alt="Singler Logo" />
+        <span class="logo-text">S</span>
+        <div class="company-name">Singler</div>
+      </div>
+    </div>
+
+    <!-- Menu Toggle for Mobile -->
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      &#9776;
+    </button>
+
+    <!-- Nav Menu -->
+    <nav class="nav" id="nav-menu" aria-label="Primary navigation">
+
+    <div class="nav-logo-mobile">
+    <div class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="Company Logo" />
+      <span class="logo-text">Singler</span>
+    </div>
+  </div>
+      
+      <button class="close-menu" id="close-menu" aria-label="Close menu">&times;</button>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+
+        <!-- Services Dropdown -->
+        <li class="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services &#9662;</a>
+          <div class="dropdown-menu" aria-label="submenu">
+            <a href="{% url 'services' %}">Security Audits</a>
+            <a href="{% url 'services' %}#SupplyChainRisks">Supply Chain Risks</a>
+            <a href="{% url 'services' %}#DueDiligence">Due Diligence</a>
+            <a href="{% url 'services' %}#MarketRiskEntry">Market Risk Entry</a>
+            <a href="{% url 'services' %}#AntiCounterfeit">Anti-Counterfeit</a>
+            <a href="{% url 'services' %}#FraudInvestigations">Fraud Investigations</a>
+            <a href="{% url 'services' %}#DigitalForensics">Digital Forensics</a>
+            <a href="{% url 'services' %}#TheftLoss">Theft & Loss</a>
+            <a href="{% url 'services' %}#UndercoverOps">Undercover Ops</a>
+            <a href="{% url 'services' %}#LawEnforcementCollaboration">Law Enforcement</a>
+          </div>
+        </li>
+
+        <!-- Experience Dropdown -->
+        <li class="dropdown" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Experience &#9662;</a>
+          <div class="dropdown-menu" aria-label="Experience submenu">
+            <a href="{% url 'experience' %}">Trusted Advisors</a>
+            <a href="{% url 'experience' %}#AfricaExpertise">Africa Expertise</a>
+            <a href="{% url 'experience' %}#ProvenResults">Proven Results</a>
+            <a href="{% url 'experience' %}#DiscreetOperations">Discreet Operations</a>
+            <a href="{% url 'experience' %}#RegulatoryInsight">Regulatory Insight</a>
+            <a href="{% url 'experience' %}#EthicalMethods">Ethical Methods</a>
+            <a href="{% url 'experience' %}#CrossBorderReach">Cross-Border Reach</a>
+            <a href="{% url 'experience' %}#LawEnforcementTies">Law Enforcement Ties</a>
+            <a href="{% url 'experience' %}#ClientConfidentiality">Client Confidentiality</a>
+            <a href="{% url 'experience' %}#CrisisResponse">Crisis Response</a>
+          </div>
+        </li>
+
+        <!-- Ideas Dropdown -->
+        <li class="dropdown" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Ideas &#9662;</a>
+          <div class="dropdown-menu" aria-label="Ideas submenu">
+            <a href="{% url 'ideas' %}">Emerging Threats</a>
+            <a href="{% url 'ideas' %}#CaseStudies">Case Studies</a>
+            <a href="{% url 'ideas' %}#InvestigativeTrends">Investigative Trends</a>
+            <a href="{% url 'ideas' %}#CounterfeitEvolution">Counterfeit Evolution</a>
+            <a href="{% url 'ideas' %}#SupplyChainInnovation">Supply Chain Innovation</a>
+            <a href="{% url 'ideas' %}#CyberIntelligence">Cyber Intelligence</a>
+            <a href="{% url 'ideas' %}#PolicyCompliance">Policy & Compliance</a>
+            <a href="{% url 'ideas' %}#DataDrivenDecisions">Data-Driven Decisions</a>
+            <a href="{% url 'ideas' %}#AfricaRiskOutlook">Africa Risk Outlook</a>
+            <a href="{% url 'ideas' %}#ThoughtLeadership">Thought Leadership</a>
+          </div>
+        </li>
+
+        <!-- Careers Dropdown -->
+        <li class="dropdown" tabindex="0">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Careers &#9662;</a>
+          <div class="dropdown-menu" aria-label="Careers submenu">
+            <a href="{% url 'career' %}">Join Our Team</a>
+            <a href="{% url 'career' %}#CurrentOpenings">Current Openings</a>
+            <a href="{% url 'career' %}#FieldInvestigators">Field Investigators</a>
+            <a href="{% url 'career' %}#DigitalForensicsRoles">Digital Forensics Roles</a>
+            <a href="{% url 'career' %}#RiskAnalysts">Risk Analysts</a>
+            <a href="{% url 'career' %}#LifeAtSingler">Life at Singler</a>
+            <a href="{% url 'career' %}#TrainingGrowth">Training & Growth</a>
+            <a href="{% url 'career' %}#OurValues">Our Values</a>
+            <a href="{% url 'career' %}#Internships">Internships</a>
+            <a href="{% url 'career' %}#ApplyNow">Apply Now</a>
+          </div>
+        </li>
+
+        <!-- Static Links -->
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact_app:contact' %}">Contact</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+ 
+    <section class="hero">
+    <div class="hero-slider">
+        <div class="hero-slide active animate-fade" data-animation="animate-fade" style="background-image: url({% static 'images/protect2.avif' %});">
+        <h1 data-text="Protecting Tomorrow, Today"></h1>
+        <p>Advance your security posture with predictive intelligence and next-gen surveillance systems.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-zoom" style="background-image: url({% static 'images/inteligence.jpg' %});">
+        <h1 data-text="Intelligence Beyond Borders"></h1>
+        <p>Strategic insights across Africa and beyond for secure investment navigation.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-rise" style="background-image: url({% static 'images/digital.avif' %});">
+        <h1 data-text="Securing Digital Dimensions"></h1>
+        <p>Resilient cybersecurity frameworks to neutralize modern digital threats.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-shift" style="background-image: url({% static 'images/CCTV.avif' %});">
+        <h1 data-text="Exposing Hidden Threats"></h1>
+        <p>Corporate investigations that uncover fraud, misconduct, and internal risks.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+        <div class="hero-slide" data-animation="animate-blur" style="background-image: url({% static 'images/hero.jpg' %});">
+        <h1 data-text="Eyes on What Matters"></h1>
+        <p>Covert surveillance strategies delivering actionable intelligence discreetly.</p>
+        <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Get in Touch</a>
+        </div>
+    </div>
+    </section>
+
+
+  <div class="hero-nav">
+    <button id="prevSlide">&#10094;</button>
+    <button id="nextSlide">&#10095;</button>
+  </div>
+</section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container grid-3">
+      <div class="stat">
+        <h2>100+</h2>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat">
+        <h2>30+</h2>
+        <p>Countries Covered</p>
+      </div>
+      <div class="stat">
+        <h2>15+</h2>
+        <p>Years of Expertise</p>
+      </div>
+    </div>
+  </section>
+  
+    <!-- Services Section -->
+    <section class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="grid-mystic">
+        <a href="{% url 'services' %}#SecurityAudits" class="card-mystic">
+            <h3>Risk Mitigation</h3>
+            <p>Security audits and supply chain risk advisory for safer operations...</p>
+        </a>
+        <a href="{% url 'services' %}#AntiCounterfeit" class="card-mystic">
+            <h3>Brand Protection</h3>
+            <p>Combating counterfeiting and safeguarding intellectual property rights...</p>
+        </a>
+        <a href="{% url 'services' %}#FraudInvestigations" class="card-mystic">
+            <h3>Corporate Investigations</h3>
+            <p>Uncovering fraud, misconduct, and preserving digital evidence...</p>
+        </a>
+        <a href="{% url 'services' %}#DueDiligence" class="card-mystic">
+            <h3>Due Diligence</h3>
+            <p>Pre-transaction and market entry risk assessments for confident decisions...</p>
+        </a>
+        <a href="{% url 'services' %}#LawEnforcementCollaboration" class="card-mystic">
+            <h3>Law Enforcement Liaison</h3>
+            <p>Coordinating with authorities for evidence and legal support...</p>
+        </a>
+        <a href="{% url 'services' %}#MarketRiskEntry" class="card-mystic">
+            <h3>Market Surveillance</h3>
+            <p>Monitoring markets and conducting undercover operations against illegal trade...</p>
+        </a>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Insights Section -->
+    <section class="insights">
+    <div class="container">
+        <h2>Our Thinking</h2>
+        <div class="insight-grid">
+        <a href="{% url 'blog' %}#OurThinkingOne" class="insight-card">
+            <h3>Perspectives on Sudan</h3>
+            <p>A closer look at Sudan’s evolving political and economic context, and the unseen forces guiding its transitions impacting risk and compliance. <br><span style="color: #00b0ff;"><u>Read More</u></span></p>
+        </a>
+        <a href="{% url 'blog' %}#OurThinkingTwo" class="insight-card">
+            <h3>Case Study: Angola</h3>
+            <p>How our tailored intelligence approach assisted a multinational navigating Angolan entry complexities. <span style="color: #00b0ff;"><u>Read More</u></span></p>
+        </a>
+        <a href="{% url 'blog' %}#OurThinkingThree" class="insight-card">
+            <h3>Cyber Threats in East Africa</h3>
+            <p>An analysis of recent cyber-attacks targeting financial institutions across Kenya, Uganda, and Ethiopia in 2025. <span style="color: #00b0ff;"><u>Read More</u></span></p>
+        </a>
+        <a href="{% url 'blog' %}#OurThinkingFour" class="insight-card">
+            <h3>Regional Security Challenges</h3>
+            <p>Assessing how cross-border crime and political instability affect supply chain and corporate risk in East Africa. <br><span style="color: #00b0ff;"><u>Read More</u></span></p>
+        </a>
+        <a href="{% url 'blog' %}#OurThinkingFive" class="insight-card">
+            <h3>Kenya’s Techno-Security Boom</h3>
+            <p>Unveiling the convergence of surveillance technology and cyber law enforcement in Nairobi's smart infrastructure. <span style="color: #00b0ff;"><u>Read More</u></span></p>
+        </a>
+        </div>
+    </div>
+
+    
+ {% include 'auth_app/cookies.html' %}
+
+    </section>
+
+        <div class="megamind-wrapper">
+
+        <section class="megamind-block">
+            <div class="megamind-image-container" data-depth="0.3">
+            <img src="{% static 'images/risk intelligence.webp' %}" alt="Risk Intelligence">
+            <div class="neon-glow"></div>
+            </div>
+            <div class="megamind-text-container" data-depth="0.6">
+            <h2 class="kinetic-text">Risk Intelligence</h2>
+            <p>
+               Our expert team gathers and analyzes critical intelligence to anticipate and mitigate threats before they impact your operations, ensuring proactive protection of assets and reputation across Africa’s complex markets. With a particular focus on both East and West Africa, we identify region-specific risks—ranging from internal fraud and counterfeiting to geopolitical instability and regulatory shifts—and deliver tailored strategies that empower decision-makers. By integrating local insights with global standards, we help clients maintain operational continuity, safeguard supply chains, and respond swiftly to emerging threats in high-risk and opaque environments.
+           </p>
+            <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-read-more">Contact Us</a>
+            </div>
+        </section>
+
+        <section class="megamind-block reverse">
+            <div class="megamind-image-container" data-depth="0.3">
+            <img src="{% static 'images/covert surveilance.webp' %}" alt="Covert Surveillance">
+            <div class="neon-glow"></div>
+            </div>
+            <div class="megamind-text-container" data-depth="0.6">
+            <h2 class="kinetic-text">Covert Surveillance</h2>
+            <p>
+                We deploy discreet, technologically advanced surveillance techniques to monitor suspect activities, uncover illicit trade, and protect your brand with precision, all while maintaining utmost confidentiality and legal compliance. Operating across East and West Africa, our covert operations are tailored to the unique challenges of each market, whether it's tracking counterfeit goods, documenting internal misconduct, or exposing unauthorized distribution networks. Our intelligence-driven approach ensures timely, actionable insights without disrupting your operations or alerting potential perpetrators.
+
+            </p>
+            <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-read-more">Contact Us</a>
+            </div>
+        </section>
+
+        <section class="megamind-block">
+            <div class="megamind-image-container" data-depth="0.3">
+            <img src="{% static 'images/digital forensis.png' %}" alt="Digital Forensics">
+            <div class="neon-glow"></div>
+            </div>
+            <div class="megamind-text-container" data-depth="0.6">
+            <h2 class="kinetic-text">Digital Forensics</h2>
+            <p>
+                Our skilled forensic specialists recover and examine digital evidence from complex cyber incidents and internal investigations, delivering robust, court-ready findings that strengthen your legal position and deter future breaches. Leveraging cutting-edge tools and region-specific expertise across East and West Africa, we trace data manipulation, unauthorized access, and insider threats with precision. Our discreet methodologies preserve chain of custody and ensure admissibility, helping clients resolve disputes, meet compliance standards, and mitigate reputational or financial fallout effectively.
+            </p>
+           <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-read-more">Contact Us</a>
+            </div>
+        </section>
+
+        <section class="megamind-block reverse">
+            <div class="megamind-image-container" data-depth="0.3">
+            <img src="{% static 'images/supply chain.webp' %}" alt="Supply Chain Security">
+            <div class="neon-glow"></div>
+            </div>
+            <div class="megamind-text-container" data-depth="0.6">
+            <h2 class="kinetic-text">Supply Chain Security</h2>
+            <p>
+                We deliver comprehensive risk assessments and intelligence solutions tailored to securing your supply chains from counterfeiting, theft, and operational disruption, ensuring uninterrupted business continuity in high-risk environments. By leveraging on-ground assets and regional insights across East and West Africa, we identify vulnerabilities, map illicit networks, and implement proactive safeguards. Our approach integrates strategic foresight, investigative precision, and regulatory alignment—empowering businesses to operate confidently and compliantly, even in opaque or volatile market conditions where threats are often hidden.
+            </p>
+            <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-read-more">Contact Us</a>
+            </div>
+        </section>
+
+          <section class="genius-experience-wrapper">
+            <article class="genius-experience-card">
+              <div class="genius-experience-content">
+                <h1>Strategic Analyst at Singler Partners</h1>
+                <p>
+                  Led advanced risk mitigation initiatives across African markets. Combined intelligence, legal expertise, and investigative techniques to protect client operations from fraud, counterfeits, and critical supply chain threats.
+                </p>
+                <a href="{% url 'about' %}#AboutUsSingler" class="genius-learn-more-btn">
+                  Learn More
+                </a>
+              </div>
+            </article>
+          </section>
+
+
+
+
+          <section class="experience-wrapper">
+
+            <!-- Card 1: Training And Growth -->
+            <article class="experience-card">
+              <div class="experience-content">
+                <h1>Training And Growth</h1>
+                <p>Singler Partners delivers focused training to build cybersecurity skills, preparing professionals to tackle evolving threats confidently and effectively.</p>
+                <button class="btn-read-more" onclick="location.href='{% url 'career' %}#TrainingGrowth'">Learn More</button>
+              </div>
+              <div class="experience-image">
+                <img src="{% static 'images/training and growth.jpg' %}" alt="Training and Growth" />
+              </div>
+            </article>
+
+            <!-- Card 2: Internship and Mentoring -->
+            <article class="experience-card">
+              <div class="experience-content">
+                <h1>Internship and Mentoring</h1>
+                <p>We offer internships paired with expert mentoring to develop hands-on security expertise and foster professional growth within the industry.</p>
+                <button class="btn-read-more" onclick="location.href='{% url 'career' %}#Internships'">Learn More</button>
+              </div>
+              <div class="experience-image">
+                <img src="{% static 'images/Mentor.webp' %}" alt="Internship and Mentoring" />
+              </div>
+            </article>
+
+          </section>
+
+
+
+<!-- Contact CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Give Us Feedback</h2>
+    <p>We value your input — share your thoughts and help us improve.</p>
+    <a href="{% url 'feedback_app:feedback' %}" class="btn-primary_one">Feedback</a>
+  </div>
+
+  <div class="container">
+    <h2>Work With Us</h2>
+    <p>Join Singler Partners to deliver trusted insights across Africa.</p>
+    <a href="{% url 'partner_app:partner_us' %}" class="btn-primary_one">Apply Here</a>
+  </div>
+
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Reach out to Singler Partners for questions, support, or inquiries.</p>
+    <a href="{% url 'contact_app:contact' %}#ContactUs" class="btn-primary_one">Contact Us</a>
+  </div>
+</section>
+
+
+<section class="genius-experience-wrapper">
+
+  <!-- Block 1: “Predicting the Invisible” -->
+  <article class="genius-experience-card">
+    <div class="genius-experience-content">
+      <h1>Predicting the Invisible</h1>
+      <p>
+        Singler Partners deploys advanced analytics and behavioral forensics to preempt emerging threats like AI-driven breaches and quantum hacks. Anticipating unknown risks is the new edge in cybersecurity—because defense starts long before the threat has a name.
+      </p>
+      <a 
+        href="{% url 'career' %}#EmergingThreats" 
+        class="genius-learn-more-btn"
+      >
+        Learn More
+      </a>
+    </div>
+  </article>
+
+  <!-- Block 2: “Eyes Before Impact” -->
+  <article class="genius-experience-card">
+    <div class="genius-experience-content">
+      <h1>Eyes Before Impact</h1>
+      <p>
+        With cyber intelligence, we scan the unseen—threat actor behavior, darknet chatter, and regional signals. Singler Partners turns fragmented data into foresight, providing early warnings before attackers act. Defense now depends on anticipation, not reaction.
+      </p>
+      <a 
+        href="{% url 'ideas' %}#CyberIntelligence" 
+        class="genius-learn-more-btn"
+      >
+        Learn More
+      </a>
+    </div>
+  </article>
+
+</section>
+
+
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="about">
+      <h3>Singler Partners</h3>
+      <p>Your trusted partner in strategic advisory and cyber intelligence. Delivering insights that matter.</p>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'privacy_policy' %}#Cookies">Cookies</a></li>
+        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+        <li><a href="{% url 'career' %}">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:simon.njue@singlerpartners.com">simon.njue@singlerpartners.com</a></p>
+      <p>Phone: <a href="tel:+254722388151">+254722388151</a></p>
+      <p>Address: Applewood Towers, Nairobi, Kenya </p>
+    </div>
+
+    <div class="social-media">
+      <h3>Follow Us</h3>
+      <div class="social-icons" aria-label="Social media links">
+        <a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" title="Twitter" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M23.954 4.569a10 10 0 01-2.825.775 4.932 4.932 0 002.163-2.724 9.85 9.85 0 01-3.127 1.195 4.918 4.918 0 00-8.384 4.482A13.957 13.957 0 011.671 3.149 4.916 4.916 0 003.195 9.722 4.9 4.9 0 012 9.31v.06a4.915 4.915 0 003.946 4.814 4.996 4.996 0 01-2.212.084 4.923 4.923 0 004.588 3.417 9.865 9.865 0 01-6.102 2.104c-.398 0-.79-.023-1.175-.068a13.945 13.945 0 007.557 2.212c9.054 0 14-7.496 14-13.986 0-.21 0-.42-.015-.63a9.936 9.936 0 002.46-2.54z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.98 3.5C4.98 2.12 6.08 1 7.44 1c1.36 0 2.44 1.12 2.44 2.5S8.8 6 7.44 6c-1.36 0-2.44-1.12-2.44-2.5zM4 8h7v13H4V8zm8 0h6v1.5h.08c.83-1.56 2.86-3.21 5.92-3.21 6.33 0 7.5 4.16 7.5 9.56V21h-7v-7.5c0-1.8-.04-4.12-2.5-4.12-2.5 0-2.88 1.96-2.88 3.98V21h-7V8z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7.75 2h8.5C18.55 2 20 3.45 20 5.75v8.5c0 2.3-1.45 3.75-3.75 3.75h-8.5C5.45 18 4 16.55 4 14.25v-8.5C4 3.45 5.45 2 7.75 2zm4.25 3a5 5 0 11-5 5 5 5 0 015-5zm3.25-.5a1.25 1.25 0 11-1.25-1.25 1.25 1.25 0 011.25 1.25zM12 8.5c-1.52 0-2.75 1.23-2.75 2.75S10.48 14 12 14s2.75-1.23 2.75-2.75S13.52 8.5 12 8.5z"/></svg>
+        </a>
+      </div>
+      <img class="logo_image" src="{% static 'images/logo.png' %}" alt="logo img">
+    </div>
+
+    <div class="bottom-bar">
+      <p>&copy; 2025 Singler Partners. All rights reserved.</p>
+    </div>
+  </div>
+
+  <button class="scroll-top" aria-label="Scroll to top" title="Back to top">
+    ↑
+  </button>
+</footer>
+<script src="{% static 'js/script.js' %}?v=1" defer></script>
+
+ <script src="{% static 'js/cookies.js' %}"></script>
+ 
+</body>
+</html>

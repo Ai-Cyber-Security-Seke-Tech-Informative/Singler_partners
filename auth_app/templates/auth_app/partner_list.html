@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Partnership Inquiries</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+<div class="container">
+
+<aside class="sidebar">
+  <div class="logo">
+    <img src="{% static 'images/logo.png' %}" alt="Singler Partners" style="width: 90px; vertical-align: middle;">
+    <span style="margin-left: 8px; font-weight: bold; font-size: 18px;">Singler Partners</span>
+  </div>
+
+   <nav class="nav-menu">
+        <a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="{% url 'contact_list' %}" class="active"><i class="fas fa-address-book"></i> Contacts</a>
+        <a href="{% url 'feedback_list' %}"><i class="fas fa-comment-dots"></i> Feedback</a>
+        <a href="{% url 'join_list' %}"><i class="fas fa-file-alt"></i> Applications</a>
+        <a href="{% url 'partner_list' %}"><i class="fas fa-handshake"></i> Partnerships</a>
+        <a href="{% url 'logout_two' %}"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="{% url 'logout_three' %}"><i class="fas fa-house"></i> Home</a>
+        <a href="{% url 'help' %}"><i class="fas fa-question-circle"></i> Help</a>
+        <a href="{% url 'privacy_policy' %}"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+        <a href="{% url 'terms_of_service' %}"><i class="fas fa-file-contract"></i> Terms & Services</a>
+  
+        <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </nav>
+</aside>
+
+<main class="main-content">
+    <header class="main-header">
+        <div class="welcome">
+            <h2>Partnership Requests</h2>
+        </div>
+    </header>
+
+    <!-- Filters with Search -->
+    <form method="get" action="{% url 'partner_list' %}" class="filters">
+        <input type="text" name="q" placeholder="Search partnerships..." value="{{ request.GET.q }}">
+        <select name="date"><option>Date</option></select>
+        <select name="type"><option>Type</option></select>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Partnership Cards Section -->
+    <div class="articles">
+        {% for inquiry in inquiries %}
+        <div class="article-item">
+            <div class="article-content">
+                <h3>{{ inquiry.org_name }}</h3>
+                <p><strong>Type:</strong> {{ inquiry.partnership_type }}</p>
+                <p class="desc">{{ inquiry.description|truncatewords:10 }}</p>
+            </div>
+            <span class="time">{{ inquiry.created_at|date:"Y-m-d H:i" }}</span>
+            <div class="action-buttons">
+                <a href="{% url 'partner_detail' inquiry.pk %}" class="open-btn">See Details</a>
+                <a href="{% url 'partner_delete' inquiry.pk %}" class="open-btn" style="background-color: red;">Delete</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>No partnership inquiries found.</p>
+        {% endfor %}
+    </div>
+
+</main>
+</div>
+
+<script>
+function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    dropdown.classList.toggle("show");
+
+    document.addEventListener('click', function handler(e) {
+        if (!e.target.closest(`#${id}`) && !e.target.closest('.notification') && !e.target.closest('.profile')) {
+            dropdown.classList.remove("show");
+            document.removeEventListener('click', handler);
+        }
+    });
+}
+</script>
+</body>
+</html>
+

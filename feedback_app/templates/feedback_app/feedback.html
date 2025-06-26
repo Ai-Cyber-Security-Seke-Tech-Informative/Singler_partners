@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback & Support</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/feedback.css' %}" />
+  <script defer src="{% static 'js/script.js' %}"></script>
+   
+</head>
+<body>
+
+  <div class="navbar">
+  <div class="navbar-left">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="navbar-logo" />
+    <span class="navbar-brand">Singler</span>
+  </div>
+  <div class="navbar-right">
+    <a href="javascript:history.back()" class="go-back-link">
+      <i class="fas fa-tachometer-alt"></i>Back
+    </a>
+  </div>
+</div>
+
+  <main class="feedback-container">
+    <h1>Feedback & Support</h1>
+    <p class="form-subtitle">We value your input. Use this form to share feedback, report issues, or get support.</p>
+
+    <form action="{% url 'feedback_app:feedback' %}" method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+
+  <!-- Message Display -->
+  {% if messages %}
+    <div style="color: red">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Feedback Type -->
+  <fieldset>
+    <legend>Type of Feedback</legend>
+    {% for type, label in feedback_types %}
+      <label>
+        <input type="radio" name="feedbackType" value="{{ type }}"
+          {% if form_data.feedbackType == type %}checked{% endif %} required>
+        {{ label }}
+      </label>
+    {% endfor %}
+  </fieldset>
+
+  <!-- Personal Info -->
+  <fieldset>
+    <legend>Personal Information</legend>
+    <label for="fullName">Full Name *</label>
+    <input type="text" id="fullName" name="fullName" required value="{{ form_data.fullName|default:'' }}">
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" name="email" required value="{{ form_data.email|default:'' }}">
+
+    <label for="phone">Phone Number (optional)</label>
+    <input type="tel" id="phone" name="phone" value="{{ form_data.phone|default:'' }}">
+  </fieldset>
+
+  <!-- Location -->
+  <fieldset>
+    <legend>Location (Optional)</legend>
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="" disabled {% if not form_data.country %}selected{% endif %}>Select your country</option>
+      {% for c in feedback_countries %}
+        <option value="{{ c }}" {% if form_data.country == c %}selected{% endif %}>{{ c }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" placeholder="e.g., Nairobi, Berlin" value="{{ form_data.city|default:'' }}">
+  </fieldset>
+
+  <!-- Message -->
+  <fieldset>
+    <legend>Your Message</legend>
+    <label for="message">Detailed Message *</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Please describe your feedback, issue, or request...">{{ form_data.message|default:'' }}</textarea>
+  </fieldset>
+
+  <!-- Attachment -->
+  <fieldset>
+    <legend>Attachments (Optional)</legend>
+    <label for="attachment">Upload File (JPG, PNG, PDF, DOCX — Max 10MB)</label>
+    <input type="file" id="attachment" name="attachment" accept=".jpg,.png,.pdf,.docx">
+  </fieldset>
+
+  <!-- Consent -->
+  <fieldset>
+    <legend>Privacy & Consent</legend>
+    <label>
+      <input type="checkbox" name="privacyConsent" required {% if form_data.privacyConsent %}checked{% endif %}>
+      I consent to having this website store my submitted information to respond to my inquiry.
+    </label>
+  </fieldset>
+
+  <!-- Buttons -->
+  <div class="button-row">
+    <button type="submit">Submit Feedback</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
+
+
+
+
+    <!-- Support Info -->
+    <div class="support-contact-info">
+      <strong>Need urgent support?</strong><br />
+      Email us at <a href="mailto:support@brandsecure.org">simon.njue@singlerpartners.com</a><br />
+      Or call: +123 456 7890 (Mon–Fri, 9am–5pm)
+    </div>
+  </main>
+
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="about">
+      <h3>Singler Partners</h3>
+      <p>Your trusted partner in strategic advisory and cyber intelligence. Delivering insights that matter.</p>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'privacy_policy' %}#Cookies">Cookies</a></li>
+        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+        <li><a href="{% url 'career' %}">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:simon.njue@singlerpartners.com">simon.njue@singlerpartners.com</a></p>
+      <p>Phone: <a href="tel:+254722388151">+254722388151</a></p>
+      <p>Address: Applewood Towers, Nairobi, Kenya </p>
+    </div>
+
+    <div class="social-media">
+      <h3>Follow Us</h3>
+      <div class="social-icons" aria-label="Social media links">
+        <a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" title="Twitter" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M23.954 4.569a10 10 0 01-2.825.775 4.932 4.932 0 002.163-2.724 9.85 9.85 0 01-3.127 1.195 4.918 4.918 0 00-8.384 4.482A13.957 13.957 0 011.671 3.149 4.916 4.916 0 003.195 9.722 4.9 4.9 0 012 9.31v.06a4.915 4.915 0 003.946 4.814 4.996 4.996 0 01-2.212.084 4.923 4.923 0 004.588 3.417 9.865 9.865 0 01-6.102 2.104c-.398 0-.79-.023-1.175-.068a13.945 13.945 0 007.557 2.212c9.054 0 14-7.496 14-13.986 0-.21 0-.42-.015-.63a9.936 9.936 0 002.46-2.54z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.98 3.5C4.98 2.12 6.08 1 7.44 1c1.36 0 2.44 1.12 2.44 2.5S8.8 6 7.44 6c-1.36 0-2.44-1.12-2.44-2.5zM4 8h7v13H4V8zm8 0h6v1.5h.08c.83-1.56 2.86-3.21 5.92-3.21 6.33 0 7.5 4.16 7.5 9.56V21h-7v-7.5c0-1.8-.04-4.12-2.5-4.12-2.5 0-2.88 1.96-2.88 3.98V21h-7V8z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7.75 2h8.5C18.55 2 20 3.45 20 5.75v8.5c0 2.3-1.45 3.75-3.75 3.75h-8.5C5.45 18 4 16.55 4 14.25v-8.5C4 3.45 5.45 2 7.75 2zm4.25 3a5 5 0 11-5 5 5 5 0 015-5zm3.25-.5a1.25 1.25 0 11-1.25-1.25 1.25 1.25 0 011.25 1.25zM12 8.5c-1.52 0-2.75 1.23-2.75 2.75S10.48 14 12 14s2.75-1.23 2.75-2.75S13.52 8.5 12 8.5z"/></svg>
+        </a>
+      </div>
+      <img class="logo_image" src="{% static 'images/logo.png' %}" alt="logo img">
+    </div>
+
+    <div class="bottom-bar">
+      <p>&copy; 2025 Singler Partners. All rights reserved.</p>
+    </div>
+  </div>
+
+  <button class="scroll-top" aria-label="Scroll to top" title="Back to top">
+    ↑
+  </button>
+</footer>
+
+  <script>
+  function goBack() {
+    if (document.referrer) {
+      window.location.href = document.referrer;
+    } else {
+      window.history.back();
+    }
+  }
+</script>
+</body>
+</html>

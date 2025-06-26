@@ -1,0 +1,189 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Singler Partners</title>
+    <link rel="stylesheet" href="{% static 'css/policy.css' %}" />
+    <script defer src="{% static 'js/script.js' %}"></script>
+   
+</head>
+<body>
+    <div class="navbar">
+  <div class="navbar-left">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="navbar-logo" />
+    <span class="navbar-brand">Singler</span>
+  </div>
+  <div class="navbar-right">
+    <a href="javascript:history.back()" class="go-back-link">
+      <i class="fas fa-tachometer-alt"></i>Back
+    </a>
+  </div>
+</div>
+
+ 
+
+
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Welcome to Singler Partners. This Privacy Policy outlines how we collect, use, and safeguard your data across our digital platforms. We are committed to maintaining your privacy and confidentiality in line with our values of integrity and accountability.</p>
+            <p>Last updated: June 2025</p>
+        </section>
+
+        <section>
+            <h2>2. Information We Collect</h2>
+            <h3>Personal Information:</h3>
+            <ul>
+                <li>Full name</li>
+                <li>Email address</li>
+                <li>Phone number</li>
+                <li>Any personal details voluntarily provided in forms</li>
+            </ul>
+            <h3>Non-Personal Information:</h3>
+            <ul>
+                <li>IP address</li>
+                <li>Browser type and version</li>
+                <li>Pages visited and time spent</li>
+                <li>Device type and operating system</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. How We Use Your Information</h2>
+            <ul>
+                <li>To respond to inquiries or career applications</li>
+                <li>To enhance security and protect against misuse</li>
+                <li>To perform analytics for service improvement</li>
+                <li>To notify users of updates or policy changes</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="Cookies">4. Cookies and Tracking</h2>
+            <p>We use cookies to personalize content, remember your preferences, and analyze traffic. You can choose to disable cookies in your browser settings.</p>
+        </section>
+
+        <section>
+            <h2>5. Legal Basis for Processing</h2>
+            <ul>
+                <li>Consent: When you fill out a contact or career form.</li>
+                <li>Legitimate Interest: To protect our services and brand.</li>
+                <li>Legal Obligation: Where required by law enforcement or regulation.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Information Sharing</h2>
+            <p>We do not sell your information. We may share your data with service providers for secure data handling, or with legal authorities when necessary. All sharing complies with confidentiality and legal standards.</p>
+        </section>
+
+        <section>
+            <h2>7. Data Retention</h2>
+            <p>We retain data only as long as necessary to fulfill its original purpose or comply with legal obligations. Inactive user data is periodically reviewed and deleted where appropriate.</p>
+        </section>
+
+        <section>
+            <h2>8. Data Security</h2>
+            <p>We implement physical, administrative, and technical safeguards — including SSL encryption and secure data centers — to protect your information. However, no method of digital transmission is 100% secure.</p>
+        </section>
+
+        <section>
+            <h2>9. Your Rights</h2>
+            <p>Depending on your region, you have the right to:</p>
+            <ul>
+                <li>Access and review your data</li>
+                <li>Correct inaccurate information</li>
+                <li>Request deletion or limit use of your data</li>
+                <li>Withdraw consent at any time</li>
+            </ul>
+            <p>To exercise these rights, contact us at <strong>info@singlerpartners.com</strong></p>
+        </section>
+
+        <section>
+            <h2>10. Third-Party Services</h2>
+            <p>We may use services like Google Analytics or secure form processors. These providers have their own privacy policies which govern their data use and protection standards.</p>
+        </section>
+
+        <section>
+            <h2>11. Children’s Privacy</h2>
+            <p>Singler Partners does not knowingly collect data from children under the age of 13. If you believe a child has submitted data to us, please notify us and we will delete it promptly.</p>
+        </section>
+
+        <section>
+            <h2>12. Changes to This Policy</h2>
+            <p>We may revise this policy from time to time. Updated versions will be posted here with a new effective date. Major updates will be communicated via our website or email notices.</p>
+        </section>
+
+        <section>
+            <h2>13. Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or your data, please reach out to us:</p>
+            <ul>
+                <li><strong>Email:</strong> info@singlerpartners.com</li>
+                <li><strong>Phone:</strong> +254722388151</li>
+                <li><strong>Office:</strong> Applewood Towers, Nairobi, Kenya</li>
+            </ul>
+        </section>
+    </div>
+
+    
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="about">
+      <h3>Singler Partners</h3>
+      <p>Your trusted partner in strategic advisory and cyber intelligence. Delivering insights that matter.</p>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'privacy_policy' %}#Cookies">Cookies</a></li>
+        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+        <li><a href="{% url 'career' %}">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:simon.njue@singlerpartners.com">simon.njue@singlerpartners.com</a></p>
+      <p>Phone: <a href="tel:+254722388151">+254722388151</a></p>
+      <p>Address: Applewood Towers, Nairobi, Kenya </p>
+    </div>
+
+    <div class="social-media">
+      <h3>Follow Us</h3>
+      <div class="social-icons" aria-label="Social media links">
+        <a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" title="Twitter" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M23.954 4.569a10 10 0 01-2.825.775 4.932 4.932 0 002.163-2.724 9.85 9.85 0 01-3.127 1.195 4.918 4.918 0 00-8.384 4.482A13.957 13.957 0 011.671 3.149 4.916 4.916 0 003.195 9.722 4.9 4.9 0 012 9.31v.06a4.915 4.915 0 003.946 4.814 4.996 4.996 0 01-2.212.084 4.923 4.923 0 004.588 3.417 9.865 9.865 0 01-6.102 2.104c-.398 0-.79-.023-1.175-.068a13.945 13.945 0 007.557 2.212c9.054 0 14-7.496 14-13.986 0-.21 0-.42-.015-.63a9.936 9.936 0 002.46-2.54z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.98 3.5C4.98 2.12 6.08 1 7.44 1c1.36 0 2.44 1.12 2.44 2.5S8.8 6 7.44 6c-1.36 0-2.44-1.12-2.44-2.5zM4 8h7v13H4V8zm8 0h6v1.5h.08c.83-1.56 2.86-3.21 5.92-3.21 6.33 0 7.5 4.16 7.5 9.56V21h-7v-7.5c0-1.8-.04-4.12-2.5-4.12-2.5 0-2.88 1.96-2.88 3.98V21h-7V8z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7.75 2h8.5C18.55 2 20 3.45 20 5.75v8.5c0 2.3-1.45 3.75-3.75 3.75h-8.5C5.45 18 4 16.55 4 14.25v-8.5C4 3.45 5.45 2 7.75 2zm4.25 3a5 5 0 11-5 5 5 5 0 015-5zm3.25-.5a1.25 1.25 0 11-1.25-1.25 1.25 1.25 0 011.25 1.25zM12 8.5c-1.52 0-2.75 1.23-2.75 2.75S10.48 14 12 14s2.75-1.23 2.75-2.75S13.52 8.5 12 8.5z"/></svg>
+        </a>
+      </div>
+      <img class="logo_image" src="{% static 'images/logo.png' %}" alt="logo img">
+    </div>
+
+    <div class="bottom-bar">
+      <p>&copy; 2025 Singler Partners. All rights reserved.</p>
+    </div>
+  </div>
+
+  <button class="scroll-top" aria-label="Scroll to top" title="Back to top">
+    ↑
+  </button>
+</footer>
+</body>
+</html>

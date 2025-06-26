@@ -1,0 +1,126 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0a0f1c;
+    color: #e0f7fa;
+}
+
+/* Container */
+.log-container {
+    padding: 30px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #00ffe1;
+    color: #0a0f1c;
+    font-weight: bold;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+    background-color: #00ccbe;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+/* Title */
+.log-title {
+    color: #00ffe1;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.log-title span {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    background-color: #091524;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Table */
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.log-table thead {
+    background-color: #1e293b;
+}
+
+.log-table th, .log-table td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #334155;
+    font-size: 14px;
+}
+
+.log-table tbody tr:hover {
+    background-color: #142132;
+}
+
+.log-table th {
+    color: #66f9ff;
+}
+
+.anonymous {
+    color: #f87171;
+    font-style: italic;
+}
+
+.no-logs {
+    text-align: center;
+    padding: 20px;
+    color: #ff7b7b;
+    background-color: #1e293b;
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .log-title {
+        font-size: 20px;
+    }
+
+    .log-table th, .log-table td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .back-btn {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .log-title {
+        font-size: 18px;
+    }
+
+    .log-table {
+        min-width: 700px;
+    }
+
+    .table-wrapper {
+        padding: 6px;
+    }
+}

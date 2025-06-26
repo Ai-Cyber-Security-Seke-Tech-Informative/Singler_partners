@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partner With Us Inquiry</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/partner_with_us.css' %}" />
+  <script defer src="js/script.js"></script>
+
+</head>
+<body>
+
+   <div class="navbar">
+  <div class="navbar-left">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="navbar-logo" />
+    <span class="navbar-brand">Singler</span>
+  </div>
+  <div class="navbar-right">
+    <a href="javascript:history.back()" class="go-back-link">
+      <i class="fas fa-tachometer-alt"></i>Back
+    </a>
+  </div>
+</div>
+
+  <div class="form-container">
+    <h1>Partner With Us Inquiry</h1>
+    <p class="form-subtitle">Fill out the form below to start a partnership conversation</p>
+    <form action="{% url 'partner_app:partner_us' %}" method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+
+  {% if messages %}
+    <div style="color: red; margin-bottom: 15px;">
+      {% for message in messages %}
+        <p class="alert alert-{{ message.tags }}">{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <fieldset>
+    <legend>Organization Information</legend>
+
+    <label for="orgName">Organization Name <span>*</span></label>
+    <input type="text" id="orgName" name="orgName" placeholder="Your organization name"
+           value="{{ form_data.orgName|default:'' }}" required />
+
+    <label for="contactPerson">Contact Person <span>*</span></label>
+    <input type="text" id="contactPerson" name="contactPerson" placeholder="Full name"
+           value="{{ form_data.contactPerson|default:'' }}" required />
+
+    <label for="email">Email <span>*</span></label>
+    <input type="email" id="email" name="email" placeholder="name@example.com"
+           value="{{ form_data.email|default:'' }}" required />
+
+    <label for="phone">Phone (optional)</label>
+    <input type="tel" id="phone" name="phone" placeholder="+1 555 555 5555"
+           value="{{ form_data.phone|default:'' }}" />
+  </fieldset>
+
+  <fieldset>
+    <legend>Partnership Details</legend>
+
+    <label for="partnershipType">Type of Partnership <span>*</span></label>
+    <select id="partnershipType" name="partnershipType" required>
+      <option value="" disabled {% if not form_data.partnershipType %}selected{% endif %}>Select partnership type</option>
+      <option value="techProvider" {% if form_data.partnershipType == "techProvider" %}selected{% endif %}>Tech Provider</option>
+      <option value="brandOwner" {% if form_data.partnershipType == "brandOwner" %}selected{% endif %}>Brand Owner</option>
+      <option value="enforcementAgency" {% if form_data.partnershipType == "enforcementAgency" %}selected{% endif %}>Enforcement Agency</option>
+      <option value="other" {% if form_data.partnershipType == "other" %}selected{% endif %}>Other</option>
+    </select>
+
+    <label for="description">Description of Interest <span>*</span></label>
+    <textarea id="description" name="description" placeholder="Explain your interest in partnering with us" required>{{ form_data.description|default:'' }}</textarea>
+
+    <label for="attachments">Attachments (optional)</label>
+    <input type="file" id="attachments" name="attachments" accept=".pdf,.doc,.docx,.ppt,.pptx,image/*" />
+  </fieldset>
+
+  <fieldset class="consent-fieldset">
+    <label class="checkbox-label" for="consent">
+      <input type="checkbox" id="consent" name="consent" {% if form_data.consent %}checked{% endif %} required />
+      I consent to having this website store my submitted information to respond to my inquiry.
+    </label>
+  </fieldset>
+
+  <div class="button-row">
+    <button type="submit" class="submit-btn">Submit</button>
+    <button type="reset" class="reset-btn">Reset</button>
+  </div>
+</form>
+
+
+  </div>
+
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="about">
+      <h3>Singler Partners</h3>
+      <p>Your trusted partner in strategic advisory and cyber intelligence. Delivering insights that matter.</p>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'privacy_policy' %}#Cookies">Cookies</a></li>
+        <li><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+        <li><a href="{% url 'career' %}">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:simon.njue@singlerpartners.com">simon.njue@singlerpartners.com</a></p>
+      <p>Phone: <a href="tel:+254722388151">+254722388151</a></p>
+      <p>Address: Applewood Towers, Nairobi, Kenya </p>
+    </div>
+
+    <div class="social-media">
+      <h3>Follow Us</h3>
+      <div class="social-icons" aria-label="Social media links">
+        <a href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" title="Twitter" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M23.954 4.569a10 10 0 01-2.825.775 4.932 4.932 0 002.163-2.724 9.85 9.85 0 01-3.127 1.195 4.918 4.918 0 00-8.384 4.482A13.957 13.957 0 011.671 3.149 4.916 4.916 0 003.195 9.722 4.9 4.9 0 012 9.31v.06a4.915 4.915 0 003.946 4.814 4.996 4.996 0 01-2.212.084 4.923 4.923 0 004.588 3.417 9.865 9.865 0 01-6.102 2.104c-.398 0-.79-.023-1.175-.068a13.945 13.945 0 007.557 2.212c9.054 0 14-7.496 14-13.986 0-.21 0-.42-.015-.63a9.936 9.936 0 002.46-2.54z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4.98 3.5C4.98 2.12 6.08 1 7.44 1c1.36 0 2.44 1.12 2.44 2.5S8.8 6 7.44 6c-1.36 0-2.44-1.12-2.44-2.5zM4 8h7v13H4V8zm8 0h6v1.5h.08c.83-1.56 2.86-3.21 5.92-3.21 6.33 0 7.5 4.16 7.5 9.56V21h-7v-7.5c0-1.8-.04-4.12-2.5-4.12-2.5 0-2.88 1.96-2.88 3.98V21h-7V8z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7.75 2h8.5C18.55 2 20 3.45 20 5.75v8.5c0 2.3-1.45 3.75-3.75 3.75h-8.5C5.45 18 4 16.55 4 14.25v-8.5C4 3.45 5.45 2 7.75 2zm4.25 3a5 5 0 11-5 5 5 5 0 015-5zm3.25-.5a1.25 1.25 0 11-1.25-1.25 1.25 1.25 0 011.25 1.25zM12 8.5c-1.52 0-2.75 1.23-2.75 2.75S10.48 14 12 14s2.75-1.23 2.75-2.75S13.52 8.5 12 8.5z"/></svg>
+        </a>
+      </div>
+      <img class="logo_image" src="{% static 'images/logo.png' %}" alt="logo img">
+    </div>
+
+    <div class="bottom-bar">
+      <p>&copy; 2025 Singler Partners. All rights reserved.</p>
+    </div>
+  </div>
+
+  <button class="scroll-top" aria-label="Scroll to top" title="Back to top">
+    ↑
+  </button>
+</footer>
+   
+</body>
+<script>
+  function goBack() {
+    if (document.referrer) {
+      window.location.href = document.referrer;
+    } else {
+      window.history.back();
+    }
+  }
+</script>
+</html>

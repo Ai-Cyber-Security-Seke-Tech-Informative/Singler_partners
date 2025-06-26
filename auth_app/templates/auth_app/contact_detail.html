@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Detail</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+    .contact-detail-card {
+        background-color: #1e293b;
+        padding: 25px;
+        margin: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
+        line-height: 1.6;
+        color: #e0f7ff;
+    }
+
+    .contact-detail-card h2 {
+        margin-bottom: 20px;
+        color: #00fff2;
+    }
+
+    .contact-detail-card h4 {
+        margin-top: 20px;
+        margin-bottom: 8px;
+        color: #7dd3fc;
+    }
+
+    .detail-buttons {
+        margin-top: 20px;
+    }
+
+    .detail-buttons .open-btn {
+        padding: 8px 16px;
+        margin-right: 10px;
+        display: inline-block;
+        color: #fff;
+        background-color: #007bff; /* preserved */
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .detail-buttons .open-btn:hover {
+        background-color: #0056b3; /* preserved */
+    }
+
+    .detail-buttons .open-btn[style*="red"] {
+        background-color: #dc3545; /* preserved */
+    }
+
+    .detail-buttons .open-btn[style*="red"]:hover {
+        background-color: #a71d2a; /* preserved */
+    }
+</style>
+
+</head>
+<body>
+<div class="container">
+
+<aside class="sidebar">
+  <div class="logo">
+    <img src="{% static 'images/logo.png' %}" alt="Singler Partners" style="width: 90px; vertical-align: middle;">
+    <span style="margin-left: 8px; font-weight: bold; font-size: 18px;">Singler Partners</span>
+  </div>
+
+   <nav class="nav-menu">
+        <a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="{% url 'contact_list' %}" class="active"><i class="fas fa-address-book"></i> Contacts</a>
+        <a href="{% url 'feedback_list' %}"><i class="fas fa-comment-dots"></i> Feedback</a>
+        <a href="{% url 'join_list' %}"><i class="fas fa-file-alt"></i> Applications</a>
+        <a href="{% url 'partner_list' %}"><i class="fas fa-handshake"></i> Partnerships</a>
+        <a href="{% url 'logout_two' %}"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="{% url 'logout_three' %}"><i class="fas fa-house"></i> Home</a>
+        <a href="{% url 'help' %}"><i class="fas fa-question-circle"></i> Help</a>
+        <a href="{% url 'privacy_policy' %}"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+        <a href="{% url 'terms_of_service' %}"><i class="fas fa-file-contract"></i> Terms & Services</a>
+  
+        <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </nav>
+</aside>
+
+<main class="main-content">
+    <header class="main-header">
+        <div class="welcome">
+            <h2>Contact Detail</h2>
+        </div>
+    </header>
+
+    <!-- Contact Detail Card -->
+    <div class="contact-detail-card">
+        <h2>{{ contact.full_name }}</h2>
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <p><strong>Phone:</strong> {{ contact.phone }}</p>
+        <p><strong>Company:</strong> {{ contact.company }}</p>
+        <p><strong>Subject:</strong> {{ contact.subject }}</p>
+        <p><strong>Preferred Contact Method:</strong> {{ contact.contact_method }}</p>
+        <p><strong>Preferred Time:</strong> {{ contact.contact_time }}</p>
+        <p><strong>Country:</strong> {{ contact.country }}</p>
+        <p><strong>City:</strong> {{ contact.city }}</p>
+        <p><strong>Message:</strong><br>{{ contact.message }}</p>
+        {% if contact.attachment %}
+            <p><strong>Attachment:</strong> <a href="{{ contact.attachment.url }}" download>Download</a></p>
+        {% endif %}
+        <div class="detail-buttons">
+            <a href="{% url 'contact_list' %}" class="open-btn">Back to List</a>
+            <a href="{% url 'contact_delete' contact.pk %}" class="open-btn" style="background-color: red;">Delete</a>
+        </div>
+    </div>
+
+</main>
+</div>
+
+</body>
+</html>

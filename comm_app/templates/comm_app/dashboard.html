@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comm Dashboard</title>
+  <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
+  <script defer src="{% static 'js/dashboard.js' %}"></script>
+</head>
+<body>
+  <div class="comm-dashboard">
+
+    <!-- Sidebar: Conversations + Search -->
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h2>Your Conversations</h2>
+        <input
+          type="search"
+          id="searchConversations"
+          placeholder="Search conversations..."
+          autocomplete="off"
+          aria-label="Search Conversations"
+        />
+        <button id="btnNewConversation" title="New Conversation">+</button>
+      </header>
+      <ul id="conversationsList" class="conversations-list">
+        <!-- Dynamically loaded conversation list items here -->
+        {% for conversation in conversations %}
+        <li data-id="{{ conversation.id }}" class="conversation-item {% if conversation.id == active_conversation.id %}active{% endif %}">
+          <div class="conversation-title">{{ conversation.title|default:"(No Title)" }}</div>
+          <div class="last-message-snippet">{{ conversation.last_message|default:"No messages yet" }}</div>
+          <div class="conversation-meta">
+            <span class="last-updated">{{ conversation.updated_at|date:"M d, H:i" }}</span>
+            <span class="unread-count">{{ conversation.unread_count }}</span>
+          </div>
+        </li>
+        {% empty %}
+        <li class="empty-msg">No conversations found</li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="chat-area">
+      {% if active_conversation %}
+      <header class="chat-header">
+        <h3>{{ active_conversation.title|default:"Conversation #"|add:active_conversation.id }}</h3>
+        <button id="btnViewParticipants" title="View Participants">👥</button>
+      </header>
+
+      <section id="messagesContainer" class="messages-container" tabindex="0" aria-live="polite" aria-relevant="additions">
+        {% for message in messages %}
+        <div
+          class="message {% if message.sender == user %}sent{% else %}received{% endif %}"
+          data-message-id="{{ message.id }}"
+        >
+          <div class="message-sender">{{ message.sender.username }}</div>
+          <div class="message-content">{{ message.content|linebreaksbr }}</div>
+          {% if message.attachments %}
+          <div class="message-attachment">
+            <a href="{{ message.attachments.url }}" target="_blank" rel="noopener noreferrer">Attachment</a>
+          </div>
+          {% endif %}
+          <div class="message-timestamp">{{ message.sent_at|date:"M d, H:i" }}</div>
+        </div>
+        {% empty %}
+        <div class="no-messages">No messages yet. Start the conversation!</div>
+        {% endfor %}
+      </section>
+
+      <footer class="chat-footer">
+        <form id="messageForm" method="post" enctype="multipart/form-data" autocomplete="off">
+          {% csrf_token %}
+          <textarea
+            id="messageInput"
+            name="content"
+            rows="2"
+            placeholder="Type a message..."
+            aria-label="Type a message"
+            required
+          ></textarea>
+          <label for="attachmentInput" class="attachment-label" title="Attach file">
+            📎
+          </label>
+          <input type="file" id="attachmentInput" name="attachments" style="display:none" />
+          <button type="submit" class="send-btn" aria-label="Send message">➡️</button>
+        </form>
+        <div id="typingIndicator" class="typing-indicator" aria-live="polite"></div>
+      </footer>
+      {% else %}
+      <div class="no-conversation-selected">Select or start a conversation to begin chatting.</div>
+      {% endif %}
+    </main>
+
+    <!-- Participants Modal (hidden initially) -->
+    <div id="participantsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="participantsTitle">
+      <div class="modal-content">
+        <header>
+          <h2 id="participantsTitle">Participants</h2>
+          <button id="closeParticipantsModal" title="Close">&times;</button>
+        </header>
+        <ul id="participantsList">
+          {% if active_conversation %}
+            {% for participant in active_conversation.participants.all %}
+            <li>{{ participant.username }}</li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

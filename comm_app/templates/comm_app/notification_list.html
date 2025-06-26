@@ -1,0 +1,27 @@
+hello
+{% block content %}
+<h2>Notifications</h2>
+
+<ul>
+  {% for note in notifications %}
+    <li style="margin-bottom: 15px;">
+      <strong>
+        {% if note.id in read_ids %}
+
+        {% else %}
+    
+        {% endif %}
+        <a href="{% url 'comm_app:notification_detail' note.id %}">
+          {{ note.title }}
+        </a>
+      </strong>
+      <br>
+      <small>{{ note.message|truncatewords:12 }}</small><br>
+      <small><em>Posted on: {{ note.created_at|date:"M d, Y H:i" }}</em></small>
+    </li>
+  {% empty %}
+    <li>No notifications yet.</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

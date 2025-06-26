@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Last Step | Singler Partners</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{% static 'css/Signup.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-900 text-white font-inter">
+
+<!-- Header -->
+<header class="p-4 bg-gray-800 shadow-md">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <span class="text-yellow-400 text-2xl font-bold">S</span>
+      <span class="font-semibold text-lg">Singler Partners</span>
+    </div>
+    <nav>
+      <a href="{% url 'index' %}" class="text-gray-300 hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded">Home</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Main Section -->
+<main class="min-h-screen flex items-center justify-center px-4 py-12">
+  <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+
+    <!-- Left Image Panel -->
+    <div class="hidden md:block">
+      <img 
+        src="{% static 'images/CCTV.avif' %}" 
+        alt="Security Surveillance Camera" 
+        class="h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
+    <!-- Right Form Panel -->
+    <section class="p-8 md:p-10" aria-labelledby="profile-completion-title">
+      <h1 id="profile-completion-title" class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">Final Step: Complete Your Profile</h1>
+      <p class="mb-6 text-gray-300">Please provide your details below to finish your registration.</p>
+
+      {% if messages %}
+        <ul class="mb-4 space-y-2" role="alert">
+          {% for message in messages %}
+            <li class="text-sm text-red-500">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <form method="POST" enctype="multipart/form-data" class="space-y-5" novalidate>
+        {% csrf_token %}
+
+        {% comment %} Input Helper Macro (Optional for DRY) {% endcomment %}
+
+        <!-- Full Name -->
+        <div>
+          <label for="full_name" class="block text-sm font-medium">Full Name <span class="text-red-500">*</span></label>
+          <input 
+            type="text" id="full_name" name="full_name"
+            value="{{ request.POST.full_name|default:'' }}"
+            required 
+            placeholder="John Doe"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:ring-yellow-400"
+          />
+        </div>
+
+        <!-- ID Number -->
+        <div>
+          <label for="id_number" class="block text-sm font-medium">ID Number</label>
+          <input 
+            type="text" id="id_number" name="id_number"
+            value="{{ request.POST.id_number|default:'' }}"
+            placeholder="Optional"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+          />
+        </div>
+
+        <!-- Gender -->
+        <div>
+          <label for="gender" class="block text-sm font-medium">Gender <span class="text-red-500">*</span></label>
+          <select id="gender" name="gender" required class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+            <option value="" disabled selected>Select Gender</option>
+            {% for g in gender_options %}
+              <option value="{{ g }}" {% if request.POST.gender == g %}selected{% endif %}>{{ g }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Date of Birth -->
+        <div>
+          <label for="date_of_birth" class="block text-sm font-medium">Date of Birth <span class="text-red-500">*</span></label>
+          <input 
+            type="date" id="date_of_birth" name="date_of_birth"
+            value="{{ request.POST.date_of_birth|default:'' }}"
+            required
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-medium">Phone <span class="text-red-500">*</span></label>
+          <input 
+            type="tel" id="phone" name="phone"
+            value="{{ request.POST.phone|default:'' }}"
+            required
+            placeholder="+1234567890"
+            pattern="^\+?[0-9\s\-()]{7,15}$"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+          />
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label for="location" class="block text-sm font-medium">Location <span class="text-red-500">*</span></label>
+          <input 
+            type="text" id="location" name="location"
+            value="{{ request.POST.location|default:'' }}"
+            required
+            placeholder="City, Country"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+          />
+        </div>
+
+        <!-- Address -->
+        <div>
+          <label for="address" class="block text-sm font-medium">Address</label>
+          <textarea 
+            id="address" name="address" rows="2"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+            placeholder="Street, Zip code, etc."
+          >{{ request.POST.address|default:'' }}</textarea>
+        </div>
+
+        <!-- Profile Picture -->
+        <div>
+          <label for="profile_picture" class="block text-sm font-medium">Profile Picture</label>
+          <input 
+            type="file" id="profile_picture" name="profile_picture"
+            accept="image/png, image/jpeg, image/jpg, image/webp"
+            class="mt-1 w-full text-sm text-white file:cursor-pointer file:rounded file:border-0 file:bg-yellow-400 file:px-3 file:py-1 file:text-gray-900 hover:file:bg-yellow-500"
+          />
+          <p class="text-xs text-gray-400 mt-1">Allowed formats: PNG, JPG, JPEG, WEBP. Max size: 2MB.</p>
+        </div>
+
+        <!-- Department -->
+        <div>
+          <label for="department" class="block text-sm font-medium">Department <span class="text-red-500">*</span></label>
+          <input 
+            type="text" id="department" name="department"
+            value="{{ request.POST.department|default:'' }}"
+            required
+            placeholder="e.g. IT, Marketing"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+          />
+        </div>
+
+        <!-- Role -->
+        <div>
+          <label for="role" class="block text-sm font-medium">Role <span class="text-red-500">*</span></label>
+          <input 
+            type="text" id="role" name="role"
+            value="{{ request.POST.role|default:'' }}"
+            required
+            placeholder="e.g. Developer, Manager"
+            class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700"
+          />
+        </div>
+
+        <!-- Employment Type -->
+        <div>
+          <label for="employment_type" class="block text-sm font-medium">Employment Type <span class="text-red-500">*</span></label>
+          <select id="employment_type" name="employment_type" required class="mt-1 w-full p-3 rounded-lg bg-gray-800 border border-gray-700">
+            <option value="" disabled selected>Select Type</option>
+            {% for type in employment_types %}
+              <option value="{{ type }}" {% if request.POST.employment_type == type %}selected{% endif %}>{{ type }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit"
+          class="w-full py-3 rounded-lg bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-500 transition focus:outline-none focus:ring-4 focus:ring-yellow-400">
+          Submit Profile
+        </button>
+      </form>
+
+      <p class="mt-6 text-sm text-center text-gray-400">
+        Already registered? <a href="{% url 'login' %}" class="text-yellow-400 hover:underline focus:ring-2 focus:ring-yellow-400 rounded">Login here</a>
+      </p>
+    </section>
+  </div>
+</main>
+
+</body>
+</html>

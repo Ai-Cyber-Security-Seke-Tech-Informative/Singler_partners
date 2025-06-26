@@ -1,0 +1,12 @@
+
+{% block content %}
+<h2>{{ notification.title }}</h2>
+
+<p><strong>Message:</strong></p>
+<p>{{ notification.message|linebreaks }}</p>
+
+<p><strong>Created At:</strong> {{ notification.created_at|date:"M d, Y H:i:s" }}</p>
+<p><strong>Last Updated:</strong> {{ notification.updated_at|date:"M d, Y H:i:s" }}</p>
+
+<a href="{% url 'comm_app:notification_list' %}">← Back to Notifications</a>
+{% endblock %}

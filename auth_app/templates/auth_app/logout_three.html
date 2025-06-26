@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Out</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/logout.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<div class="logout-box">
+    <i class="fas fa-sign-out-alt"></i>
+    <h2>Are you sure you want to log out?</h2>
+    <p>You will be securely logged out of your account and redirected to the <span style="color: red">Home page.</span></p>
+
+    <div class="btn-group">
+        <form method="POST" action="{% url 'index' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-logout">Yes, Log Me Out</button>
+        </form>
+        <a href="{% url 'dashboard' %}" class="btn btn-cancel">Cancel</a>
+    </div>
+</div>
+
+</body>
+</html>

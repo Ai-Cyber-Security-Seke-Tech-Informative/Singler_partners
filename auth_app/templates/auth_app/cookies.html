@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Singler Partners</title>
+  <link rel="stylesheet" href="{% static 'css/cookies.css' %}">
+</head>
+<body>
+  
+  <div id="cookieConsent" class="cookie-consent">
+  <div class="cookie-content">
+    <p>
+      We use cookies to enhance your experience and analyze traffic.
+      By continuing to browse, you consent to our use of cookies.Policy & Privacy.
+    </p>
+    <div class="cookie-buttons">
+      <button id="acceptCookies" class="btn accept-btn">Accept</button>
+      <button id="rejectCookies" class="btn reject-btn">Reject</button>
+    </div>
+  </div>
+</div>
+
+
+  <script src="{% static 'js/cookies.js' %}"></script>
+</body>
+</html>
