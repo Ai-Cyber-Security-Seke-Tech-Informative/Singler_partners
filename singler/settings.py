@@ -80,6 +80,7 @@ MIDDLEWARE = [
     'logs_app.middleware.ActivityLoggingMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'singler.middleware.BlockPathsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'singler.urls'
