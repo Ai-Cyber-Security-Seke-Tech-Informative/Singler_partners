@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clear Logs</title>
+    <link rel="stylesheet" href="{% static 'css/clear_logs.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<body>
+    <div class="confirm-box">
+        <h2>⚠️ Confirm Deletion</h2>
+        <p>Are you sure you want to permanently delete all system logs?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="btn-group">
+                <a href="{% url 'logs_app:logs' %}" class="btn btn-cancel">Cancel</a>
+                <button type="submit" class="btn btn-delete">Delete Logs</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -764,7 +764,7 @@ textarea {
   border: 1px solid var(--card-border);
   padding: 3rem 2.5rem; /* Increased internal spacing */
   flex: 1 1 350px;       /* Bigger base size */
-  max-width: 500px;      /* Increased max size */
+  max-width: 400px;      /* Increased max size */
   box-shadow: 0 0 2px var(--accent-glow);
   color: var(--text-main);
   text-align: center;
@@ -837,6 +837,39 @@ textarea {
 
   .button-row {
     flex-direction: column;
+  }
+}
+.button-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: var(--btn-bg);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hover / focus styles */
+.button-contact:hover,
+.button-contact:focus {
+  background-color: var(--btn-bg-hover, #0057a5); /* Optional hover fallback */
+  transform: scale(1.02);
+}
+
+/* Make sure it wraps properly on very small screens */
+@media (max-width: 480px) {
+  .button-contact {
+    font-size: 0.95rem;
+    padding: 0.5em 1em;
+    width: auto;
   }
 }
 

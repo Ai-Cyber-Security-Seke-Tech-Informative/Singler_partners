@@ -10,7 +10,6 @@
    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
    <script src="{% static 'js/script.js' %}?v=1" defer></script>
   <!-- example at the end of your body -->
-  <script src="{% static 'js/contact.js' %}"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,7 +212,7 @@
     <h1 style="color: gold; text-align: center;">Contact Us</h1>
     <p class="form-subtitle">We're here to support your brand protection needs. Reach out below.</p>
 
-   <form id="contactForm"
+   <form 
       action="{% url 'contact_app:contact' %}"
       method="post"
       enctype="multipart/form-data"
@@ -386,17 +385,17 @@
   <div class="info-button-box">
     <h3>Mentorship</h3>
     <p>At Singler Partners, we guide passionate individuals ready to lead in Brand Protection and Anti-Counterfeiting.</p>
-    <a href="{% url 'career' %}#TrainingGrowth" class="info-link-btn">Learn Here</a>
+    <a href="{% url 'career' %}#TrainingGrowth" class="button-contact">Learn Here</a>
   </div>
   <div class="info-button-box">
     <h3>Internship</h3>
     <p>Gain hands-on experience in cybersecurity and anti-counterfeit operations with our dynamic internship program.</p>
-    <a href="{% url 'career' %}#Internships" class="info-link-btn">See More</a>
+    <a href="{% url 'career' %}#Internships" class="button-contact">See More</a>
   </div>
   <div class="info-button-box">
     <h3>Collaboration</h3>
     <p>Partner with Singler Partners to innovate and scale global brand protection solutions.</p>
-    <a href="{% url 'career' %}#ApplyNow" class="info-link-btn">Know More</a>
+    <a href="{% url 'career' %}#ApplyNow" class="button-contact">Know More</a>
   </div>
 </section>
 
@@ -406,19 +405,19 @@
     <h5>Feedback & Suggestions</h5>
     <p>Share your ideas, concerns, or complaints to help Singler Partners grow and improve in the future.</p>
     <br>
-    <a href="{% url 'feedback_app:feedback' %}" class="info-link-btn">Send Feedback</a>
+    <a href="{% url 'feedback_app:feedback' %}" class="button-contact">Send Feedback</a>
   </div>
   <div class="extra-card">
     <h5>Consulting & Partnerships</h5>
     <p>Become part of our global consultancy and brand protection alliance. Register or log in to begin.</p>
     <br>
-    <a href="{% url 'partner_app:partner_us' %}" class="info-link-btn">Partner With Us</a>
+    <a href="{% url 'partner_app:partner_us' %}" class="button-contact">Partner With Us</a>
   </div>
   <div class="extra-card">
     <h5>Join Singler Partners</h5>
     <p>Apply to become part of our team and work on global brand protection and anti-counterfeiting projects.</p>
     <br>
-    <a href="{% url 'join_app:join' %}" class="info-link-btn">Apply Now</a>
+    <a href="{% url 'join_app:join' %}" class="button-contact">Apply Now</a>
   </div>
 </div>
 <div class="container-company-info">
@@ -435,18 +434,13 @@
       <p><strong style="color: var(--btn-bg)">WhatsApp:</strong> +254 722 388 151</p>
       <p><strong style="color: var(--btn-bg)">Location HQ:</strong> Applewood Towers, Nairobi, Kenya</p>
       <p><strong style="color: var(--btn-bg)">Open Hours:</strong> Mon–Fri: 08:00 – 18:00 | Sat–Sun: Closed <br>(Emergency Response Available)</p>
-
+      
       <div class="social-icons">
         <a href="https://www.facebook.com/singlerpartners" target="_blank" class="icon"><i class="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com/singlerpartners" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
         <a href="https://www.linkedin.com/company/singlerpartners" target="_blank" class="icon"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div> <!-- End .company-details -->
-
-    <!-- Right Side: Image or Logo -->
-    <div class="company-visual">
-      <img src="{% static 'images/CCTV.avif' %}" alt="Singler Partners Visual" />
-    </div> <!-- End .company-visual -->
 
   </div> <!-- End .company-info .glass .morph .split-layout -->
 
@@ -548,8 +542,6 @@
     ↑
   </button>
 </footer>
-
-<script src="{% static 'js/contact.js' %}"></script>
 
 
 </body>

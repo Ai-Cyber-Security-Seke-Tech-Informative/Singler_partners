@@ -187,63 +187,6 @@ function resetInterval() {
 showSlide(currentSlide);
 startSlider();
 
-
-// Form validation and submission
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const form = event.target;
-      const fullName = form.fullName.value.trim();
-      const email = form.email.value.trim();
-      const subject = form.subject.value;
-      const message = form.message.value.trim();
-      const privacyConsent = form.privacyConsent.checked;
-      const attachment = form.attachment.files[0];
-
-      if (!fullName) {
-        alert('Please enter your full name.');
-        form.fullName.focus();
-        return;
-      }
-      if (!email) {
-        alert('Please enter your email address.');
-        form.email.focus();
-        return;
-      }
-      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-      if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        form.email.focus();
-        return;
-      }
-      if (!subject) {
-        alert('Please select a subject.');
-        form.subject.focus();
-        return;
-      }
-      if (!message) {
-        alert('Please enter your message.');
-        form.message.focus();
-        return;
-      }
-      if (!privacyConsent) {
-        alert('You must consent to storing your information to proceed.');
-        form.privacyConsent.focus();
-        return;
-      }
-      if (attachment) {
-        const maxSize = 10 * 1024 * 1024;
-        if (attachment.size > maxSize) {
-          alert('The attached file exceeds the maximum allowed size of 10MB.');
-          form.attachment.focus();
-          return;
-        }
-      }
-
-      alert('Thank you for contacting us! Your inquiry has been submitted.');
-      form.reset();
-    });
-
  // Accordion toggle logic with plus/minus icon
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {

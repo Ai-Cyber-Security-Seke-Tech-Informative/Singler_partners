@@ -124,3 +124,24 @@ body {
         padding: 6px;
     }
 }
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.clear-btn {
+  background-color: #dc3545;
+  text-decoration: none; /* red danger tone */
+}
+
+.clear-btn:hover {
+  background-color: #a71d2a;
+}
+a{
+    text-decoration: none;
+}
+  

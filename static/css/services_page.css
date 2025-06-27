@@ -603,7 +603,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   width: 70%;
-  height: 80vh;
+  height: 90vh;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 2rem;
@@ -713,29 +713,117 @@ ul {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .vision-card, .vision-interrupt {
+@media (max-width: 768px) {
+  .vision-cards {
+    padding: 3rem 5%;
+    gap: 2rem;
+  }
+
+  .vision-card, 
+  .vision-interrupt {
     flex-direction: column !important;
-    width: 90%;
-    height: auto;
+    width: 95% !important;
+    height: auto !important;
+    padding: 1.5rem !important;
+    margin: 2rem auto !important;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
   }
 
-  .vision-card img, .vision-card .content {
-    width: 100%;
+  .vision-card img, 
+  .vision-card .content {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 1rem;
+    box-sizing: border-box;
   }
 
-  .futuristic-section {
-    flex-direction: column;
-    height: auto;
+  .vision-card img {
+    object-fit: contain !important;
+  }
+
+  .vision-card .content {
     text-align: center;
-    padding: 2rem 5%;
+    padding: 1rem 0;
   }
 
-  .text-block, .visual-block {
-    max-width: 100%;
+  .vision-card h2 {
+    font-size: 1.5rem !important;
   }
+
+  .vision-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .vision-interrupt h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Reduce shadow glow on mobile for visual clarity */
+  .vision-card,
+  .vision-interrupt {
+    box-shadow: 0 0 15px #00f0ff15 !important;
+  }
+  
 }
 
+
+@media (max-width: 768px) {
+  .futuristic-section {
+    padding: 1.5rem 1.1rem;
+    gap: 0.75rem;
+    margin-top: 35px;
+  }
+
+  .futuristic-section h1 {
+    font-size: 1.7rem;
+    margin-top: 5px;
+  }
+
+  .futuristic-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .futuristic-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+.btn-glow, .btn-border {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.65rem 1.3rem;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-glow {
+  background-color: #00b0ff;
+  color: white;
+  box-shadow: 0 4 5px rgba(0, 176, 255, 0.5);
+}
+
+.btn-glow:hover {
+  background-color: #0090d1;
+}
+
+.btn-border {
+  border: 2px solid #00b0ff;
+  background-color: transparent;
+  color: #00b0ff;
+}
+
+.btn-border:hover {
+  background-color: #00b0ff;
+  color: white;
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');

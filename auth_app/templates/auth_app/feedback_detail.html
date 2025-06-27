@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <title>Feedback Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="{% static 'js/dashboard.js' %}?v=1" defer></script>
 </head>
 <body>
 <div class="container">
 
 <aside class="sidebar">
   <div class="logo">
-    <img src="{% static 'images/logo.png' %}" alt="Singler Partners" style="width: 90px; vertical-align: middle;">
-    <span style="margin-left: 8px; font-weight: bold; font-size: 18px;">Singler Partners</span>
+    <img src="{% static 'images/logo.png' %}" alt="Singler Partners" />
+    <span>Singler Partners</span>
   </div>
-
-   <nav class="nav-menu">
-        <a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-        <a href="{% url 'contact_list' %}" class="active"><i class="fas fa-address-book"></i> Contacts</a>
+   
+   <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="{% url 'dashboard' %}" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="{% url 'contact_list' %}"> <i class="fas fa-address-book"></i> Contacts</a>
         <a href="{% url 'feedback_list' %}"><i class="fas fa-comment-dots"></i> Feedback</a>
         <a href="{% url 'join_list' %}"><i class="fas fa-file-alt"></i> Applications</a>
         <a href="{% url 'partner_list' %}"><i class="fas fa-handshake"></i> Partnerships</a>
@@ -27,7 +29,7 @@
         <a href="{% url 'help' %}"><i class="fas fa-question-circle"></i> Help</a>
         <a href="{% url 'privacy_policy' %}"><i class="fas fa-user-shield"></i> Privacy Policy</a>
         <a href="{% url 'terms_of_service' %}"><i class="fas fa-file-contract"></i> Terms & Services</a>
-  
+        <a href="{% url 'logs_app:logs' %}" class="nav-link-logs"><i class="fas fa-clipboard-list"></i> System Logs</a>
         <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
     </nav>
 </aside>
@@ -47,7 +49,7 @@
         <p><strong>Country:</strong> {{ feedback.country|default:"Not specified" }}</p>
         <p><strong>City:</strong> {{ feedback.city|default:"Not specified" }}</p>
         <p><strong>Type:</strong> {{ feedback.get_feedback_type_display }}</p>
-        <p><strong>Submitted:</strong> {{ feedback.created_at|date:"Y-m-d H:i" }}</p>
+        <p><strong>Submitted:</strong> {{ feedback.submitted_at|date:"Y-m-d H:i" }}</p>
 
         <h4>Message:</h4>
         <p>{{ feedback.message }}</p>
@@ -66,56 +68,5 @@
 
 </main>
 </div>
-<style>
-    .contact-detail-card {
-        background-color: #1e293b;
-        padding: 25px;
-        margin: 20px;
-        border-radius: 12px;
-        box-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
-        line-height: 1.6;
-        color: #e0f7ff;
-    }
-
-    .contact-detail-card h2 {
-        margin-bottom: 20px;
-        color: #00fff2;
-    }
-
-    .contact-detail-card h4 {
-        margin-top: 20px;
-        margin-bottom: 8px;
-        color: #7dd3fc;
-    }
-
-    .detail-buttons {
-        margin-top: 20px;
-    }
-
-    .detail-buttons .open-btn {
-        padding: 8px 16px;
-        margin-right: 10px;
-        display: inline-block;
-        color: #fff;
-        background-color: #007bff; /* preserved */
-        border-radius: 6px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-    }
-
-    .detail-buttons .open-btn:hover {
-        background-color: #0056b3; /* preserved */
-    }
-
-    .detail-buttons .open-btn[style*="red"] {
-        background-color: #dc3545; /* preserved */
-    }
-
-    .detail-buttons .open-btn[style*="red"]:hover {
-        background-color: #a71d2a; /* preserved */
-    }
-</style>
-
-
 </body>
 </html>

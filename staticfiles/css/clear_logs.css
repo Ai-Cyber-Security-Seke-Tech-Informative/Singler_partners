@@ -1,0 +1,78 @@
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #1e293b;
+        }
+
+        .confirm-box {
+            background-color: #1e293b;
+            padding: 30px 25px;
+            max-width: 400px;
+            width: 90%;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .confirm-box h2 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #dc2626;
+        }
+
+        .confirm-box p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-cancel {
+            background-color: #64748b;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: #475569;
+        }
+
+        .btn-delete {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #b91c1c;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                flex: 1 1 100%;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+    

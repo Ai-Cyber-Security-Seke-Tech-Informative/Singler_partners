@@ -4,7 +4,6 @@ from django.http import HttpResponseNotFound
 
 class BlockPathsMiddleware:
     BLOCKED_PATHS = [
-        '/logs/logs/',
         # add other paths you want to block
     ]
 

@@ -731,26 +731,47 @@ ul {
   text-align: center;
   transform: rotate(0deg);
 }
+@media (max-width: 768px) {
+  .insight-grid {
+    padding: 0;
+  }
 
-@media (max-width: 900px) {
   .insight-card {
-    width: 90%;
-    padding: 2rem 1.5rem;
+    width: 94vw !important;
+    max-width: 94vw !important;
+    padding: 2rem 1.2rem !important;
     clip-path: none !important;
-    border-radius: 15px;
-    min-height: auto;
-    transform: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.2);
+  }
+
+  .insight-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .insight-card p {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .interruptive {
-    max-width: 90%;
-    padding: 1.25rem 1.25rem; /* keep consistent with above */
-    border-left-width: 4px;
+    width: 70vw !important;
+    max-width: 94vw !important;
+    padding: 1rem 1rem;
     font-size: 1rem;
-    line-height: 1.5;
+    border-left-width: 4px;
     transform: none !important;
-    margin: 2rem auto;
+    margin: 2rem auto !important;
     text-align: center !important;
+  }
+
+  .interruptive h4 {
+    font-size: 1.3rem;
+  }
+
+  .interruptive p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .interruptive.left,
@@ -759,15 +780,8 @@ ul {
     margin-left: auto !important;
     margin-right: auto !important;
   }
-
-  .interruptive h4 {
-    font-size: 1.3rem;
-  }
-
-  .interruptive p {
-    font-size: 1rem;
-  }
 }
+
 /* Button */
 .btn-primary_one {
   background: #0056b3;
