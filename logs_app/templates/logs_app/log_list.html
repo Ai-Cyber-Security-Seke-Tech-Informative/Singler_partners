@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="log-container">
-        <button class="back-btn" onclick="history.back()">← Back</button>
+        <a href="{% url 'logs_app:logs' %}" class="back-btn" style="text-decoration: none;">← Back</a>
        <a href="{% url 'logs_app:clear_logs' %}" class="back-btn clear-btn" style="text-decoration: none;">🗑️ Clear Logs</a>
 
 
