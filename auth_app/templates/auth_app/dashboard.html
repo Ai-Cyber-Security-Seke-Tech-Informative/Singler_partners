@@ -110,7 +110,7 @@
           <!-- Profile -->
           <div class="profile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="profileDropdown" onclick="toggleDropdown('profileDropdown')" onkeypress="if(event.key==='Enter'){toggleDropdown('profileDropdown')}">
               {% if profile_picture %}
-                  <img src="{{ profile_picture }}" alt="Profile Picture" />
+                  <img src="{{ profile_picture.url }}" alt="Profile Picture" />
               {% else %}
                   <img src="{% static 'images/CCTV.avif' %}" alt="Default profile" />
               {% endif %}
